@@ -6,9 +6,14 @@ import { fadeInUp, staggerContainer, scaleIn } from '../utils/animations';
 
 const Contact = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsSubmitting(true);
+        setErrorMessage("");
+
         const formData = new FormData(e.target);
 
         formData.append("access_key", "32335743-4ac7-4a41-af41-ff07ea6cc156");
@@ -32,9 +37,13 @@ const Contact = () => {
                 setTimeout(() => setIsSubmitted(false), 5000);
             } else {
                 console.error("Error submitting form:", res);
+                setErrorMessage(res.message || "Something went wrong. Please try again.");
             }
         } catch (error) {
             console.error("Error submitting form:", error);
+            setErrorMessage("Network error. Please check your connection.");
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -182,14 +191,20 @@ const Contact = () => {
                                             <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-4">Your Message</label>
                                             <textarea required name="message" rows="4" className="w-full p-6 bg-white/5 border border-white/10 rounded-[2rem] text-white focus:bg-white/10 focus:border-brand-red focus:shadow-[0_0_0_8px_rgba(239,68,68,0.1)] outline-none resize-none transition-all font-bold text-lg placeholder:text-slate-600" placeholder="Describe your requirements..."></textarea>
                                         </div>
+                                        {errorMessage && (
+                                            <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-2xl text-red-200 text-sm font-bold text-center">
+                                                {errorMessage}
+                                            </div>
+                                        )}
                                         <Motion.button
                                             whileHover={{ scale: 1.02, y: -4 }}
                                             whileTap={{ scale: 0.98 }}
                                             type="submit"
-                                            className="w-full py-8 bg-brand-red hover:bg-red-600 text-white font-black text-xl rounded-[2.5rem] flex items-center justify-center gap-4 transition-all duration-500 shadow-2xl shadow-brand-red/20 hover:shadow-brand-red/40"
+                                            disabled={isSubmitting}
+                                            className={`w-full py-8 ${isSubmitting ? 'bg-slate-700 cursor-not-allowed' : 'bg-brand-red hover:bg-red-600'} text-white font-black text-xl rounded-[2.5rem] flex items-center justify-center gap-4 transition-all duration-500 shadow-2xl shadow-brand-red/20 hover:shadow-brand-red/40`}
                                         >
-                                            Send Message
-                                            <Send size={24} strokeWidth={3} />
+                                            {isSubmitting ? "Sending..." : "Send Message"}
+                                            {!isSubmitting && <Send size={24} strokeWidth={3} />}
                                         </Motion.button>
                                     </form>
                                 )}
