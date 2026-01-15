@@ -13,7 +13,7 @@ const Navbar = () => {
     const backgroundColor = useTransform(
         scrollY,
         [0, 50],
-        ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.9)"]
+        ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 1)"]
     );
 
     const backdropFilter = useTransform(
@@ -76,7 +76,7 @@ const Navbar = () => {
                     to={link.path}
                     className={`relative px-4 py-2 text-sm font-bold uppercase tracking-widest transition-colors duration-300 z-10 flex items-center justify-center ${active
                         ? 'text-brand-red'
-                        : isScrolled ? 'text-slate-800 hover:text-brand-red' : 'text-white hover:text-brand-red'
+                        : isScrolled ? 'text-slate-900 hover:text-brand-red' : 'text-slate-900 lg:text-white hover:text-brand-red'
                         }`}
                 >
                     {link.name}
