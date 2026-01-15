@@ -88,7 +88,7 @@ const About = () => {
                                 <Motion.img
                                     whileHover={{ scale: 1.05 }}
                                     transition={{ duration: 1.5 }}
-                                    src="/images/heritage.png"
+                                    src={`${import.meta.env.BASE_URL}images/heritage.png`}
                                     alt="Fresh Seafood Heritage"
                                     className="w-full object-cover h-[500px] md:h-[700px]"
                                 />

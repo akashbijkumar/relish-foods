@@ -17,7 +17,7 @@ const Home = () => {
                     className="absolute inset-0 z-0"
                 >
                     <img
-                        src="/images/hero_fresh_indian.png"
+                        src={`${import.meta.env.BASE_URL}images/hero_fresh_indian.png`}
                         alt="Premium Seafood from India"
                         className="w-full h-full object-cover"
                     />

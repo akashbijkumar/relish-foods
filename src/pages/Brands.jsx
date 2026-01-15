@@ -81,7 +81,7 @@ const Brands = () => {
                                 className="relative z-10 bg-white/40 backdrop-blur-xl border border-white/50 p-12 md:p-20 rounded-[3rem] shadow-[0_40px_100px_-20px_rgba(239,68,68,0.2)]"
                             >
                                 <img
-                                    src="/images/brands/apsara_logo.png"
+                                    src={`${import.meta.env.BASE_URL}images/brands/apsara_logo.png`}
                                     alt="Apsara Logo"
                                     className="w-full h-auto drop-shadow-2xl"
                                 />
@@ -166,7 +166,7 @@ const Brands = () => {
                                 className="relative z-10 bg-slate-800/50 backdrop-blur-xl border border-white/10 p-12 md:p-20 rounded-[3rem] shadow-[0_40px_100px_-20px_rgba(59,130,246,0.2)]"
                             >
                                 <img
-                                    src="/images/brands/merit_logo.png"
+                                    src={`${import.meta.env.BASE_URL}images/brands/merit_logo.png`}
                                     alt="Merit Logo"
                                     className="w-full h-auto drop-shadow-2xl"
                                 />
