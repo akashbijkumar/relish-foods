@@ -58,7 +58,7 @@ const Certifications = () => {
                         variants={staggerContainer}
                         initial="initial"
                         whileInView="whileInView"
-                        viewport={{ once: true }}
+                        viewport={{ once: true, amount: 0.1 }}
                         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                     >
                         {certs.map((cert, idx) => (
@@ -66,7 +66,7 @@ const Certifications = () => {
                                 key={idx}
                                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: true, amount: 0.1 }}
                                 transition={{ duration: 0.5, delay: cert.delay }}
                                 whileHover={{ y: -10, scale: 1.02 }}
                                 className="group bg-white p-10 rounded-[3rem] shadow-xl shadow-slate-200/50 border border-slate-50 hover:border-brand-red/40 hover:bg-brand-red/[0.12] hover:shadow-[0_40px_80px_-20px_rgba(239,68,68,0.25)] transition-all duration-500"
@@ -100,7 +100,7 @@ const Certifications = () => {
                         <Motion.div
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0.1 }}
                             className="lg:w-1/2"
                         >
                             <span className="inline-block px-4 py-1 bg-brand-red text-white font-black tracking-widest uppercase text-xs rounded-full mb-8">
@@ -129,7 +129,7 @@ const Certifications = () => {
                         <Motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0.1 }}
                             className="lg:w-1/2 relative"
                         >
                             <div className="absolute -inset-10 bg-brand-red/10 rounded-[5rem] blur-3xl opacity-50" />

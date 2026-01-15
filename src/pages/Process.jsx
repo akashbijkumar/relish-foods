@@ -71,7 +71,7 @@ const Process = () => {
                         variants={staggerContainer}
                         initial="initial"
                         whileInView="whileInView"
-                        viewport={{ once: true }}
+                        viewport={{ once: true, amount: 0.1 }}
                         className="relative"
                     >
                         {/* Connecting Line (Desktop) */}
@@ -80,7 +80,7 @@ const Process = () => {
                                 className="w-full h-full bg-gradient-to-b from-brand-red via-blue-600 to-brand-red"
                                 initial={{ y: "-100%" }}
                                 whileInView={{ y: "0%" }}
-                                viewport={{ once: true }}
+                                viewport={{ once: true, amount: 0.1 }}
                                 transition={{ duration: 3, ease: "easeInOut" }}
                             />
                         </div>
@@ -91,7 +91,7 @@ const Process = () => {
                                 className="w-full h-full bg-gradient-to-b from-brand-red to-blue-600"
                                 initial={{ y: "-100%" }}
                                 whileInView={{ y: "0%" }}
-                                viewport={{ once: true }}
+                                viewport={{ once: true, amount: 0.1 }}
                                 transition={{ duration: 2 }}
                             />
                         </div>
@@ -136,7 +136,7 @@ const Process = () => {
                                         <Motion.div
                                             initial={{ scale: 0, opacity: 0 }}
                                             whileInView={{ scale: 1, opacity: 1 }}
-                                            viewport={{ once: true }}
+                                            viewport={{ once: true, amount: 0.1 }}
                                             transition={{ type: "spring", stiffness: 200, delay: 0.3 }}
                                             className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-white border-4 border-slate-900 flex items-center justify-center shadow-2xl group"
                                         >

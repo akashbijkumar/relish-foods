@@ -109,7 +109,7 @@ const Home = () => {
                         variants={staggerContainer}
                         initial="initial"
                         whileInView="whileInView"
-                        viewport={{ once: true }}
+                        viewport={{ once: true, amount: 0.1 }}
                         className="flex flex-wrap items-center justify-center gap-6 md:gap-16"
                     >
                         {[
@@ -165,7 +165,7 @@ const Home = () => {
                         variants={staggerContainer}
                         initial="initial"
                         whileInView="whileInView"
-                        viewport={{ once: true }}
+                        viewport={{ once: true, amount: 0.1 }}
                         className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12"
                     >
                         {[
@@ -242,7 +242,7 @@ const Home = () => {
                             variants={staggerContainer}
                             initial="initial"
                             whileInView="whileInView"
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0.1 }}
                             className="grid grid-cols-1 sm:grid-cols-2 gap-8 relative"
                         >
                             <Motion.div

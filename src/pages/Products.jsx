@@ -75,7 +75,7 @@ const Products = () => {
                         variants={staggerContainer}
                         initial="initial"
                         whileInView="whileInView"
-                        viewport={{ once: true }}
+                        viewport={{ once: true, amount: 0.1 }}
                         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12"
                     >
                         {products.map((product) => (

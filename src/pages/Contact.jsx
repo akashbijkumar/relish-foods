@@ -52,7 +52,7 @@ const Contact = () => {
                                 variants={staggerContainer}
                                 initial="initial"
                                 whileInView="whileInView"
-                                viewport={{ once: true }}
+                                viewport={{ once: true, amount: 0.1 }}
                                 className="space-y-12"
                             >
                                 <Motion.div variants={fadeInUp}>
@@ -118,7 +118,7 @@ const Contact = () => {
                                 initial={{ opacity: 0, scale: 0.95, y: 50 }}
                                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                                viewport={{ once: true }}
+                                viewport={{ once: true, amount: 0.1 }}
                                 className="bg-slate-900 p-10 md:p-16 rounded-[4rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] border border-slate-800 relative overflow-hidden group"
                             >
                                 {/* Decorative internal gradient */}
@@ -177,7 +177,7 @@ const Contact = () => {
                         variants={fadeInUp}
                         initial="initial"
                         whileInView="whileInView"
-                        viewport={{ once: true }}
+                        viewport={{ once: true, amount: 0.1 }}
                         className="mt-32 relative group"
                     >
                         <div className="absolute -inset-1 bg-gradient-to-r from-brand-red/20 to-blue-500/20 rounded-[5rem] blur opacity-30 group-hover:opacity-100 transition duration-1000" />

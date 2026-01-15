@@ -43,7 +43,7 @@ const About = () => {
                             variants={fadeInUp}
                             initial="initial"
                             whileInView="whileInView"
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0.1 }}
                             className="lg:w-1/2"
                         >
                             <Motion.span
@@ -80,7 +80,7 @@ const About = () => {
                             initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
                             whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
                             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0.1 }}
                             className="lg:w-1/2 relative"
                         >
                             <div className="absolute -inset-10 bg-brand-red/5 rounded-[5rem] transform -rotate-3 -z-10"></div>
@@ -108,7 +108,7 @@ const About = () => {
                     <Motion.div
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: true, amount: 0.1 }}
                         className="text-center mb-24"
                     >
                         <span className="text-brand-red font-black tracking-[0.3em] uppercase text-xs mb-4 block">Purposes & Goals</span>
@@ -119,7 +119,7 @@ const About = () => {
                         <Motion.div
                             initial={{ opacity: 0, x: -100 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0.1 }}
                             transition={{ duration: 1, type: "spring", bounce: 0.2 }}
                             className="relative group p-12 md:p-16 bg-white/[0.03] backdrop-blur-3xl rounded-[4rem] text-white border border-white/10 hover:bg-white hover:text-slate-900 transition-all duration-700 overflow-hidden"
                         >
@@ -138,7 +138,7 @@ const About = () => {
                         <Motion.div
                             initial={{ opacity: 0, x: 100 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0.1 }}
                             transition={{ duration: 1, type: "spring", bounce: 0.2 }}
                             className="relative group p-12 md:p-16 bg-white/[0.03] backdrop-blur-3xl rounded-[4rem] text-white border border-white/10 hover:bg-white hover:text-slate-900 transition-all duration-700 overflow-hidden"
                         >
@@ -173,7 +173,7 @@ const About = () => {
                         variants={staggerContainer}
                         initial="initial"
                         whileInView="whileInView"
-                        viewport={{ once: true }}
+                        viewport={{ once: true, amount: 0.1 }}
                         className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12"
                     >
                         {values.map((value, idx) => (
