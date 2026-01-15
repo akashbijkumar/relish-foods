@@ -10,10 +10,12 @@ const PageHeader = ({ tagline, title, subtitle, image }) => {
                     initial={{ scale: 1.2, filter: 'blur(10px)' }}
                     animate={{ scale: 1, filter: 'blur(0px)' }}
                     transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
+                    style={{ willChange: 'transform, filter' }}
                     src={image}
                     alt={title}
                     className="w-full h-full object-cover opacity-50"
                 />
+
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/50 to-transparent" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-transparent to-transparent" />
             </div>

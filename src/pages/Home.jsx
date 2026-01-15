@@ -29,9 +29,11 @@ const Home = () => {
                     <Motion.div
                         variants={staggerContainer}
                         initial="initial"
-                        animate="animate"
+                        whileInView="whileInView"
+                        viewport={{ once: true, amount: 0.1 }}
                         className="flex flex-col items-center"
                     >
+
                         {/* Elegant Badge */}
                         <Motion.div
                             initial={{ opacity: 0, y: -20 }}
@@ -99,19 +101,13 @@ const Home = () => {
                     </Motion.div>
                 </div>
 
-
             </section>
+
 
             {/* Trust Badges - Staggered reveal */}
             <section className="bg-slate-900 py-16 border-t border-white/10 relative z-20 overflow-hidden">
                 <div className="max-w-7xl mx-auto px-6">
-                    <Motion.div
-                        variants={staggerContainer}
-                        initial="initial"
-                        whileInView="whileInView"
-                        viewport={{ once: true, amount: 0.1 }}
-                        className="flex flex-wrap items-center justify-center gap-6 md:gap-16"
-                    >
+                    <div className="flex flex-wrap items-center justify-center gap-6 md:gap-16">
                         {[
                             { icon: <ShieldCheck className="w-6 h-6 text-green-500" />, label: "HACCP Certified" },
                             { icon: <ShieldCheck className="w-6 h-6 text-blue-500" />, label: "US-FDA Approved" },
@@ -120,14 +116,15 @@ const Home = () => {
                         ].map((badge, i) => (
                             <Motion.div
                                 key={i}
-                                variants={fadeInUp}
+                                {...fadeInUp}
+                                transition={{ ...fadeInUp.transition, delay: i * 0.1 }}
                                 className="flex items-center gap-3 bg-white/5 backdrop-blur-sm px-6 py-3 rounded-full border border-white/10 shadow-lg hover:bg-white/10 transition-colors"
                             >
                                 {badge.icon}
                                 <span className="text-white/80 text-xs sm:text-sm font-bold uppercase tracking-widest">{badge.label}</span>
                             </Motion.div>
                         ))}
-                    </Motion.div>
+                    </div>
                 </div>
             </section>
 
@@ -161,13 +158,7 @@ const Home = () => {
                     </div>
 
                     {/* Features Grid */}
-                    <Motion.div
-                        variants={staggerContainer}
-                        initial="initial"
-                        whileInView="whileInView"
-                        viewport={{ once: true, amount: 0.1 }}
-                        className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12"
-                    >
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                         {[
                             {
                                 icon: <Anchor className="w-10 h-10" />,
@@ -190,7 +181,8 @@ const Home = () => {
                         ].map((feature, index) => (
                             <Motion.div
                                 key={index}
-                                variants={fadeInUp}
+                                {...fadeInUp}
+                                transition={{ ...fadeInUp.transition, delay: (index % 3) * 0.1 }}
                                 whileHover={{ y: -15, scale: 1.02 }}
                                 className="group relative bg-white p-10 md:p-12 rounded-[3.5rem] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-[0_40px_80px_-20px_rgba(239,68,68,0.25)] hover:bg-brand-red/[0.12] hover:border-brand-red/30 transition-all duration-500"
                             >
@@ -201,7 +193,7 @@ const Home = () => {
                                 <p className="text-slate-500 text-lg leading-relaxed font-medium">{feature.desc}</p>
                             </Motion.div>
                         ))}
-                    </Motion.div>
+                    </div>
                 </div>
             </section>
 
@@ -238,15 +230,9 @@ const Home = () => {
                         </Motion.div>
 
                         {/* Brand Cards */}
-                        <Motion.div
-                            variants={staggerContainer}
-                            initial="initial"
-                            whileInView="whileInView"
-                            viewport={{ once: true, amount: 0.1 }}
-                            className="grid grid-cols-1 sm:grid-cols-2 gap-8 relative"
-                        >
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 relative">
                             <Motion.div
-                                variants={fadeInUp}
+                                {...fadeInUp}
                                 className="bg-white/5 backdrop-blur-xl rounded-[4rem] p-12 border border-white/10 text-center group hover:border-brand-red/50 transition-all duration-700 shadow-2xl relative overflow-hidden"
                             >
                                 <div className="absolute inset-0 bg-brand-red translate-y-full group-hover:translate-y-0 transition-transform duration-700 -z-10" />
@@ -258,7 +244,8 @@ const Home = () => {
                             </Motion.div>
 
                             <Motion.div
-                                variants={fadeInUp}
+                                {...fadeInUp}
+                                transition={{ ...fadeInUp.transition, delay: 0.2 }}
                                 className="bg-white/5 backdrop-blur-xl rounded-[4rem] p-12 border border-white/10 text-center group hover:border-white transition-all duration-700 shadow-2xl overflow-hidden relative"
                             >
                                 <div className="absolute inset-0 bg-brand-red translate-y-full group-hover:translate-y-0 transition-transform duration-700 -z-10" />
@@ -268,7 +255,7 @@ const Home = () => {
                                 <h3 className="text-2xl font-black text-slate-400 group-hover:text-white mb-4 transition-colors uppercase">Consistent Quality</h3>
                                 <p className="text-slate-400 group-hover:text-white/90 transition-colors text-lg italic tracking-tight font-medium">Reliable quality for everyday needs</p>
                             </Motion.div>
-                        </Motion.div>
+                        </div>
                     </div>
                 </div>
             </section>

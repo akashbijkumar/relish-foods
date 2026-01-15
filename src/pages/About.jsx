@@ -1,8 +1,8 @@
 import { cloneElement } from 'react';
 import { motion as Motion } from 'framer-motion';
-import { CheckCircle, Anchor, ShieldCheck, Lightbulb, Target } from 'lucide-react';
+import { Anchor, ShieldCheck, Lightbulb, Target } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
-import { fadeInUp, staggerContainer } from '../utils/animations';
+import { fadeInUp } from '../utils/animations';
 
 const About = () => {
     const values = [
@@ -32,8 +32,9 @@ const About = () => {
                 tagline="Our Heritage"
                 title="Legacy of Trust"
                 subtitle="Leading the seafood industry with five decades of excellence and global footprints."
-                image="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=2070&auto=format&fit=crop"
+                image="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=2070&auto=format&fit=crop"
             />
+
 
             {/* Our Story Section */}
             <section className="pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden bg-white">
@@ -169,17 +170,12 @@ const About = () => {
                         </span>
                         <h2 className="text-5xl md:text-8xl font-black text-slate-900 mb-8 tracking-tighter leading-none">Core Principles</h2>
                     </Motion.div>
-                    <Motion.div
-                        variants={staggerContainer}
-                        initial="initial"
-                        whileInView="whileInView"
-                        viewport={{ once: true, amount: 0.1 }}
-                        className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12"
-                    >
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                         {values.map((value, idx) => (
                             <Motion.div
                                 key={idx}
-                                variants={fadeInUp}
+                                {...fadeInUp}
+                                transition={{ ...fadeInUp.transition, delay: idx * 0.1 }}
                                 whileHover={{ y: -15, scale: 1.02 }}
                                 className="group bg-slate-50 p-10 md:p-14 rounded-[4rem] border border-transparent hover:bg-white hover:border-slate-100 transition-all duration-700 shadow-sm hover:shadow-2xl hover:shadow-brand-red/10"
                             >
@@ -190,7 +186,7 @@ const About = () => {
                                 <p className="text-slate-500 text-lg md:text-xl leading-relaxed font-medium transition-colors">{value.desc}</p>
                             </Motion.div>
                         ))}
-                    </Motion.div>
+                    </div>
                 </div>
             </section>
 

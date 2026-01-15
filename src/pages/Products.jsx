@@ -2,7 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { Star, ArrowUpRight } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
-import { fadeInUp, staggerContainer } from '../utils/animations';
+import { fadeInUp } from '../utils/animations';
+
 
 const Products = () => {
     const navigate = useNavigate();
@@ -64,24 +65,20 @@ const Products = () => {
                 tagline="Finest Catch"
                 title="Premium Products"
                 subtitle="Explore our diverse range of world-class seafood, ethically sourced and frozen to stay fresh."
-                image={`${import.meta.env.BASE_URL}images/products_hero.jpg`} // Assuming a local image or consistent unsplash
+                image="https://images.unsplash.com/photo-1534080564672-6809c9c0f990?q=80&w=2070&auto=format&fit=crop"
             />
+
 
             {/* Filtering & Listing */}
             <section className="pt-16 pb-24 md:pt-24 md:pb-32">
                 <div className="max-w-7xl mx-auto px-6">
                     {/* Products Grid */}
-                    <Motion.div
-                        variants={staggerContainer}
-                        initial="initial"
-                        whileInView="whileInView"
-                        viewport={{ once: true, amount: 0.1 }}
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12"
-                    >
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
                         {products.map((product) => (
                             <Motion.div
                                 key={product.id}
-                                variants={fadeInUp}
+                                {...fadeInUp}
+                                transition={{ ...fadeInUp.transition, delay: (products.indexOf(product) % 3) * 0.1 }}
                                 whileHover={{ y: -15 }}
                                 className="group bg-white rounded-[3rem] overflow-hidden shadow-2xl shadow-slate-200/50 border border-slate-50 relative"
                             >
@@ -133,7 +130,7 @@ const Products = () => {
                                 </div>
                             </Motion.div>
                         ))}
-                    </Motion.div>
+                    </div>
                 </div>
             </section>
 

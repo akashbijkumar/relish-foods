@@ -1,5 +1,6 @@
 import { motion as Motion } from 'framer-motion';
-import { Shield, Sparkles, Award, Anchor, Waves, ArrowDown } from 'lucide-react';
+import { Shield, Sparkles, Award, Anchor, Waves } from 'lucide-react';
+
 import PageHeader from '../components/PageHeader';
 import { fadeInUp } from '../utils/animations';
 
@@ -26,10 +27,11 @@ const Brands = () => {
                             className="lg:w-1/2"
                         >
                             <Motion.div
-                                initial={{ width: 0 }}
-                                whileInView={{ width: "100px" }}
-                                className="h-1 bg-brand-red mb-8"
+                                initial={{ scaleX: 0, originX: 0 }}
+                                whileInView={{ scaleX: 1 }}
+                                className="h-1 bg-brand-red mb-8 w-[100px]"
                             />
+
                             <Motion.span
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
@@ -111,10 +113,11 @@ const Brands = () => {
                             className="lg:w-1/2"
                         >
                             <Motion.div
-                                initial={{ width: 0 }}
-                                whileInView={{ width: "100px" }}
-                                className="h-1 bg-blue-500 mb-8 ml-auto lg:ml-0"
+                                initial={{ scaleX: 0, originX: 0 }}
+                                whileInView={{ scaleX: 1 }}
+                                className="h-1 bg-blue-500 mb-8 ml-auto lg:ml-0 w-[100px]"
                             />
+
                             <Motion.span
                                 initial={{ opacity: 0, x: 20 }}
                                 whileInView={{ opacity: 1, x: 0 }}

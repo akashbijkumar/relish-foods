@@ -5,6 +5,7 @@ export const fadeInUp = {
     transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
 };
 
+
 export const fadeIn = {
     initial: { opacity: 0 },
     whileInView: { opacity: 1 },
@@ -16,10 +17,12 @@ export const staggerContainer = {
     initial: {},
     whileInView: {
         transition: {
-            staggerChildren: 0.1
+            staggerChildren: 0.1,
+            delayChildren: 0.1
         }
     }
 };
+
 
 export const scaleIn = {
     initial: { opacity: 0, scale: 0.9 },

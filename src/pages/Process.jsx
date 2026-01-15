@@ -56,8 +56,9 @@ const Process = () => {
                 tagline="From Ocean to Plate"
                 title="Our Process"
                 subtitle="From the ocean to your plate, ensuring freshness at every step."
-                image="https://images.unsplash.com/photo-1439405326854-014607f694d7?q=80&w=2070&auto=format&fit=crop"
+                image="https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?q=80&w=2074&auto=format&fit=crop"
             />
+
 
             {/* Process Steps Section */}
             <section className="relative pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden">
