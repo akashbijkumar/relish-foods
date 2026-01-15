@@ -134,7 +134,7 @@ const Navbar = () => {
                                 whileTap={{ scale: 0.95 }}
                             >
                                 <img
-                                    src="/images/logo.png"
+                                    src={`${import.meta.env.BASE_URL}images/logo.png`}
                                     alt="Relish Foods"
                                     className="h-16 w-auto object-contain"
                                 />

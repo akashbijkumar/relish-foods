@@ -61,7 +61,7 @@ const Footer = () => {
                             </li>
                             <li className="flex items-center gap-4">
                                 <Mail className="text-red-600 w-6 h-6 shrink-0" />
-                                <span className="text-slate-400 text-lg font-medium">info@relishfoodsindia.com</span>
+                                <span className="text-slate-400 text-lg font-medium">info@relishfoods.in</span>
                             </li>
                         </ul>
                     </div>
