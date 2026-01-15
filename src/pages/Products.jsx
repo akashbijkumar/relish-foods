@@ -65,7 +65,7 @@ const Products = () => {
                 tagline="Finest Catch"
                 title="Premium Products"
                 subtitle="Explore our diverse range of world-class seafood, ethically sourced and frozen to stay fresh."
-                image="https://images.unsplash.com/photo-1534080564672-6809c9c0f990?q=80&w=2070&auto=format&fit=crop"
+                image={`${import.meta.env.BASE_URL}images/brands_bg_fish.png`}
             />
 
 
