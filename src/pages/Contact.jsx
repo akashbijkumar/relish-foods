@@ -13,10 +13,17 @@ const Contact = () => {
 
         formData.append("access_key", "32335743-4ac7-4a41-af41-ff07ea6cc156");
 
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
         try {
             const res = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
-                body: formData
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: json
             }).then((res) => res.json());
 
             if (res.success) {
