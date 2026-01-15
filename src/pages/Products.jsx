@@ -12,7 +12,7 @@ const Products = () => {
             id: 1,
             name: "Vannamei Shrimps",
             category: "Shrimps & Prawns",
-            image: `${import.meta.env.BASE_URL}images/products/Vanameri Shrimp.png`,
+            image: `${import.meta.env.BASE_URL}images/products/Vanameri_Shrimp.png`,
             desc: "Premium quality Vannamei shrimps, head-on or headless, processed to perfection.",
             specs: ["IQF Frozen", "Export Quality", "HACCP Certified"]
         },
@@ -20,7 +20,7 @@ const Products = () => {
             id: 2,
             name: "Black Tiger Prawns",
             category: "Shrimps & Prawns",
-            image: `${import.meta.env.BASE_URL}images/products/Black Tiger.png`,
+            image: `${import.meta.env.BASE_URL}images/products/Black_Tiger.png`,
             desc: "Massive, juicy Black Tiger prawns sourced from the deep Arabian sea.",
             specs: ["Block Frozen", "Sustainably Sourced"]
         },
@@ -44,7 +44,7 @@ const Products = () => {
             id: 5,
             name: "Indian Mackerel",
             category: "Fish Dishes",
-            image: `${import.meta.env.BASE_URL}images/products/Indian Mackrel.png`,
+            image: `${import.meta.env.BASE_URL}images/products/Indian_Mackrel.png`,
             desc: "Freshly caught Indian Mackerel, rich in oil and flavor, frozen at source.",
             specs: ["Whole Round", "High Protein"]
         },

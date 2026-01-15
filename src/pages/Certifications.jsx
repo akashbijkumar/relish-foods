@@ -1,7 +1,7 @@
 import { motion as Motion } from 'framer-motion';
 import { ShieldCheck, Locate, ExternalLink, CheckCircle, FileText } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
-import { fadeInUp, staggerContainer } from '../utils/animations';
+import { staggerContainer } from '../utils/animations';
 
 const Certifications = () => {
     const certs = [
