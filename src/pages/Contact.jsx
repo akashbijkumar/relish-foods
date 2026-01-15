@@ -7,10 +7,28 @@ import { fadeInUp, staggerContainer, scaleIn } from '../utils/animations';
 const Contact = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setIsSubmitted(true);
-        setTimeout(() => setIsSubmitted(false), 5000);
+        const formData = new FormData(e.target);
+
+        formData.append("access_key", "32335743-4ac7-4a41-af41-ff07ea6cc156");
+
+        try {
+            const res = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            }).then((res) => res.json());
+
+            if (res.success) {
+                setIsSubmitted(true);
+                e.target.reset();
+                setTimeout(() => setIsSubmitted(false), 5000);
+            } else {
+                console.error("Error submitting form:", res);
+            }
+        } catch (error) {
+            console.error("Error submitting form:", error);
+        }
     };
 
     return (
@@ -142,20 +160,20 @@ const Contact = () => {
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                             <div className="space-y-3">
                                                 <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-4">Full Name</label>
-                                                <input required type="text" className="w-full p-6 bg-white/5 border border-white/10 rounded-[2rem] text-white focus:bg-white/10 focus:border-brand-red focus:shadow-[0_0_0_8px_rgba(239,68,68,0.1)] outline-none transition-all font-bold text-lg placeholder:text-slate-600" placeholder="e.g. John Doe" />
+                                                <input required name="name" type="text" className="w-full p-6 bg-white/5 border border-white/10 rounded-[2rem] text-white focus:bg-white/10 focus:border-brand-red focus:shadow-[0_0_0_8px_rgba(239,68,68,0.1)] outline-none transition-all font-bold text-lg placeholder:text-slate-600" placeholder="e.g. John Doe" />
                                             </div>
                                             <div className="space-y-3">
                                                 <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-4">Email Address</label>
-                                                <input required type="email" className="w-full p-6 bg-white/5 border border-white/10 rounded-[2rem] text-white focus:bg-white/10 focus:border-brand-red focus:shadow-[0_0_0_8px_rgba(239,68,68,0.1)] outline-none transition-all font-bold text-lg placeholder:text-slate-600" placeholder="john@example.com" />
+                                                <input required name="email" type="email" className="w-full p-6 bg-white/5 border border-white/10 rounded-[2rem] text-white focus:bg-white/10 focus:border-brand-red focus:shadow-[0_0_0_8px_rgba(239,68,68,0.1)] outline-none transition-all font-bold text-lg placeholder:text-slate-600" placeholder="john@example.com" />
                                             </div>
                                         </div>
                                         <div className="space-y-3">
                                             <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-4">Inquiry Subject</label>
-                                            <input required type="text" className="w-full p-6 bg-white/5 border border-white/10 rounded-[2rem] text-white focus:bg-white/10 focus:border-brand-red focus:shadow-[0_0_0_8px_rgba(239,68,68,0.1)] outline-none transition-all font-bold text-lg placeholder:text-slate-600" placeholder="How can we help?" />
+                                            <input required name="subject" type="text" className="w-full p-6 bg-white/5 border border-white/10 rounded-[2rem] text-white focus:bg-white/10 focus:border-brand-red focus:shadow-[0_0_0_8px_rgba(239,68,68,0.1)] outline-none transition-all font-bold text-lg placeholder:text-slate-600" placeholder="How can we help?" />
                                         </div>
                                         <div className="space-y-3">
                                             <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-4">Your Message</label>
-                                            <textarea required rows="4" className="w-full p-6 bg-white/5 border border-white/10 rounded-[2rem] text-white focus:bg-white/10 focus:border-brand-red focus:shadow-[0_0_0_8px_rgba(239,68,68,0.1)] outline-none resize-none transition-all font-bold text-lg placeholder:text-slate-600" placeholder="Describe your requirements..."></textarea>
+                                            <textarea required name="message" rows="4" className="w-full p-6 bg-white/5 border border-white/10 rounded-[2rem] text-white focus:bg-white/10 focus:border-brand-red focus:shadow-[0_0_0_8px_rgba(239,68,68,0.1)] outline-none resize-none transition-all font-bold text-lg placeholder:text-slate-600" placeholder="Describe your requirements..."></textarea>
                                         </div>
                                         <Motion.button
                                             whileHover={{ scale: 1.02, y: -4 }}
