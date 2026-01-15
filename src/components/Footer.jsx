@@ -12,10 +12,11 @@ const Footer = () => {
                     {/* Brand Info */}
                     <div className="lg:col-span-1">
                         <Link to="/" className="flex items-center gap-2 mb-8 group">
-                            <div className="bg-red-600 p-2 rounded-xl group-hover:rotate-12 transition-transform shadow-lg shadow-red-600/20">
-                                <Waves className="w-6 h-6 text-white" />
-                            </div>
-                            <span className="text-3xl font-black text-white tracking-tighter">RELISH FOODS</span>
+                            <img
+                                src={`${import.meta.env.BASE_URL}images/logo.png`}
+                                alt="Relish Foods"
+                                className="h-16 w-auto object-contain"
+                            />
                         </Link>
                         <p className="text-slate-400 text-lg leading-relaxed mb-8 font-medium">
                             A legacy of five decades in bringing the ocean's finest bounty to the world stage. Committed to safety, quality, and absolute freshness.
@@ -26,7 +27,7 @@ const Footer = () => {
                     <div>
                         <h3 className="text-xl font-black text-white mb-8 uppercase tracking-widest text-xs">Navigation</h3>
                         <ul className="space-y-4">
-                            {['Home', 'Products', 'Process', 'About', 'Contact'].map((item) => (
+                            {['Home', 'About', 'Products', 'Process', 'Brands', 'Certifications', 'Contact'].map((item) => (
                                 <li key={item}>
                                     <Link
                                         to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}

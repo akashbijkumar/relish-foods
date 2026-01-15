@@ -86,7 +86,7 @@ const Process = () => {
                         </div>
 
                         {/* Connecting Line (Mobile) */}
-                        <div className="lg:hidden absolute left-4 md:left-8 top-0 bottom-0 w-1 bg-slate-100 overflow-hidden">
+                        <div className="lg:hidden absolute left-0 sm:left-4 md:left-8 top-0 bottom-0 w-1 bg-slate-100 overflow-hidden">
                             <Motion.div
                                 className="w-full h-full bg-gradient-to-b from-brand-red to-blue-600"
                                 initial={{ y: "-100%" }}
@@ -106,9 +106,9 @@ const Process = () => {
                                         whileInView={{ opacity: 1, x: 0 }}
                                         viewport={{ once: true, margin: "-100px" }}
                                         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                                        className={`w-full lg:w-5/12 ml-10 lg:ml-0 ${index % 2 === 0 ? 'lg:pr-16 md:pr-24' : 'lg:pl-16 md:pl-24'}`}
+                                        className={`w-full lg:w-5/12 ml-6 sm:ml-10 lg:ml-0 ${index % 2 === 0 ? 'lg:pr-16 md:pr-24' : 'lg:pl-16 md:pl-24'}`}
                                     >
-                                        <div className="group bg-white p-8 md:p-12 rounded-[3.5rem] border border-slate-100 shadow-2xl shadow-slate-200/50 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] hover:bg-slate-100 hover:border-slate-300 transition-all duration-500 relative overflow-hidden">
+                                        <div className="group bg-white p-6 sm:p-8 md:p-12 rounded-[2.5rem] sm:rounded-[3.5rem] border border-slate-100 shadow-2xl shadow-slate-200/50 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] hover:bg-slate-100 hover:border-slate-300 transition-all duration-500 relative overflow-hidden">
                                             {/* Accent Gradient */}
                                             <div className={`absolute top-0 right-0 w-full h-2 bg-gradient-to-r ${step.gradient}`} />
 
@@ -117,14 +117,14 @@ const Process = () => {
                                                     <div className={`flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-3xl bg-gradient-to-br ${step.gradient} text-white group-hover:rotate-12 transition-all duration-500 shadow-xl`}>
                                                         {step.icon}
                                                     </div>
-                                                    <span className="text-5xl md:text-7xl font-black text-slate-100 group-hover:text-brand-red/10 transition-colors duration-500 select-none">
+                                                    <span className="text-4xl sm:text-5xl md:text-7xl font-black text-slate-100 group-hover:text-brand-red/10 transition-colors duration-500 select-none">
                                                         {step.num}
                                                     </span>
                                                 </div>
-                                                <h3 className="text-2xl md:text-3xl font-black text-slate-900 mb-6 group-hover:text-brand-red transition-colors tracking-tight uppercase leading-[0.9]">
+                                                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 mb-6 group-hover:text-brand-red transition-colors tracking-tight uppercase leading-tight">
                                                     {step.title}
                                                 </h3>
-                                                <p className="text-slate-500 leading-relaxed text-lg md:text-xl font-medium">
+                                                <p className="text-slate-500 leading-relaxed text-base sm:text-lg md:text-xl font-medium">
                                                     {step.desc}
                                                 </p>
                                             </div>
@@ -132,18 +132,18 @@ const Process = () => {
                                     </Motion.div>
 
                                     {/* Center Point */}
-                                    <div className="absolute left-4 md:left-8 lg:left-1/2 top-10 lg:top-1/2 -translate-x-1/2 lg:-translate-y-1/2 z-20">
+                                    <div className="absolute left-0 sm:left-4 md:left-8 lg:left-1/2 top-10 lg:top-1/2 -translate-x-1/2 lg:-translate-y-1/2 z-20">
                                         <Motion.div
                                             initial={{ scale: 0, opacity: 0 }}
                                             whileInView={{ scale: 1, opacity: 1 }}
                                             viewport={{ once: true }}
                                             transition={{ type: "spring", stiffness: 200, delay: 0.3 }}
-                                            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border-4 border-slate-900 flex items-center justify-center shadow-2xl group"
+                                            className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-white border-4 border-slate-900 flex items-center justify-center shadow-2xl group"
                                         >
                                             <Motion.div
                                                 animate={{ scale: [1, 1.3, 1] }}
                                                 transition={{ duration: 2, repeat: Infinity }}
-                                                className={`w-3 h-3 md:w-4 md:h-4 rounded-full bg-gradient-to-r ${step.gradient}`}
+                                                className={`w-2 h-2 md:w-4 md:h-4 rounded-full bg-gradient-to-r ${step.gradient}`}
                                             />
                                         </Motion.div>
                                     </div>

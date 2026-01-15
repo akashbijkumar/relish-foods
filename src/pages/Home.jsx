@@ -8,7 +8,7 @@ const Home = () => {
         <div className="flex flex-col">
             {/* Hero Section - Full immersive experience */}
             {/* Hero Section - Redesigned */}
-            <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900 pt-20 sm:pt-0">
+            <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center overflow-hidden bg-slate-900 pt-32 sm:pt-0">
                 {/* Background Image - Enhanced */}
                 <Motion.div
                     initial={{ scale: 1.1, opacity: 0 }}
@@ -75,7 +75,7 @@ const Home = () => {
                             Exporting premium quality catch from the pristine waters of the Arabian Sea to over 30 countries worldwide.
                         </Motion.p>
 
-                        {/* CTA Buttons */}
+                        {/* CTA Buttons - Unified Red Theme */}
                         <Motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -84,31 +84,22 @@ const Home = () => {
                         >
                             <Link
                                 to="/products"
-                                className="group relative inline-flex items-center justify-center gap-3 min-w-[200px] border-2 border-brand-red bg-brand-red/10 text-white font-bold text-lg px-8 py-4 rounded-full backdrop-blur-sm transition-all duration-300 hover:bg-brand-red hover:shadow-[0_0_40px_rgba(227,30,36,0.6)] hover:scale-105 active:scale-95"
+                                className="group relative inline-flex items-center justify-center min-w-[240px] bg-brand-red/10 border border-brand-red/40 text-white font-bold text-lg px-8 py-5 rounded-full backdrop-blur-md transition-all duration-500 hover:bg-brand-red hover:border-brand-red hover:shadow-[0_15px_40px_-10px_rgba(227,30,36,0.6)] hover:-translate-y-1 hover:scale-105 active:scale-95 overflow-hidden"
                             >
-                                <span className="relative z-10 tracking-widest uppercase text-sm">Explore Prods.</span>
-                                <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
+                                <span className="relative z-10 tracking-widest uppercase text-sm">Explore Products</span>
                             </Link>
+
                             <Link
                                 to="/about"
-                                className="group relative inline-flex items-center justify-center gap-3 min-w-[200px] border-2 border-white/30 bg-white/5 text-white font-bold text-lg px-8 py-4 rounded-full backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-slate-900 hover:border-white hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:scale-105 active:scale-95"
+                                className="group relative inline-flex items-center justify-center min-w-[240px] bg-brand-red/10 border border-brand-red/40 text-white font-bold text-lg px-8 py-5 rounded-full backdrop-blur-md transition-all duration-500 hover:bg-brand-red hover:border-brand-red hover:shadow-[0_15px_40px_-10px_rgba(227,30,36,0.6)] hover:-translate-y-1 hover:scale-105 active:scale-95 overflow-hidden"
                             >
-                                <span className="tracking-widest uppercase text-sm">Our Heritage</span>
+                                <span className="relative z-10 tracking-widest uppercase text-sm">Our Heritage</span>
                             </Link>
                         </Motion.div>
                     </Motion.div>
                 </div>
 
-                {/* Scroll Indicator */}
-                <Motion.div
-                    className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.5, duration: 1 }}
-                >
-                    <span className="text-white/40 text-xs tracking-widest uppercase">Scroll</span>
-                    <div className="w-[1px] h-12 bg-gradient-to-b from-white/40 to-transparent" />
-                </Motion.div>
+
             </section>
 
             {/* Trust Badges - Staggered reveal */}
@@ -156,7 +147,7 @@ const Home = () => {
                         <Motion.h2
                             {...fadeInUp}
                             transition={{ ...fadeInUp.transition, delay: 0.1 }}
-                            className="text-4xl md:text-7xl font-black text-slate-900 mb-8 tracking-tighter"
+                            className="text-4xl sm:text-5xl md:text-7xl font-black text-slate-900 mb-8 tracking-tighter leading-tight"
                         >
                             Excellence in <span className="text-brand-red">Every Catch</span>
                         </Motion.h2>
@@ -229,7 +220,7 @@ const Home = () => {
                             <span className="inline-block px-4 py-1 bg-brand-red text-white font-black tracking-widest uppercase text-xs rounded-full mb-6">
                                 Our Brands
                             </span>
-                            <h2 className="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-[0.8]">
+                            <h2 className="text-5xl sm:text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-[0.9]">
                                 Brands That Define
                                 <br />
                                 <span className="text-brand-red transition-all hover:tracking-normal tracking-[0.05em]"> Excellence</span>
@@ -256,26 +247,26 @@ const Home = () => {
                         >
                             <Motion.div
                                 variants={fadeInUp}
-                                className="bg-white/5 backdrop-blur-xl rounded-[4rem] p-12 border border-white/10 text-center group hover:bg-white hover:border-white transition-all duration-700 shadow-2xl relative overflow-hidden"
+                                className="bg-white/5 backdrop-blur-xl rounded-[4rem] p-12 border border-white/10 text-center group hover:border-brand-red/50 transition-all duration-700 shadow-2xl relative overflow-hidden"
                             >
                                 <div className="absolute inset-0 bg-brand-red translate-y-full group-hover:translate-y-0 transition-transform duration-700 -z-10" />
                                 <div className="h-32 flex items-center justify-center mb-8">
-                                    <span className="text-5xl md:text-6xl font-serif font-black text-white group-hover:text-white transition-colors tracking-widest">APSARA</span>
+                                    <span className="text-5xl md:text-6xl font-serif font-black text-white transition-colors tracking-widest">APSARA</span>
                                 </div>
                                 <h3 className="text-2xl font-black text-brand-red group-hover:text-white mb-4 transition-colors">The Gold Standard</h3>
-                                <p className="text-slate-400 group-hover:text-white/80 transition-colors text-lg italic tracking-tight font-medium">Premium selection for discerning markets</p>
+                                <p className="text-slate-400 group-hover:text-white/90 transition-colors text-lg italic tracking-tight font-medium">Premium selection for discerning markets</p>
                             </Motion.div>
 
                             <Motion.div
                                 variants={fadeInUp}
-                                className="bg-white/5 backdrop-blur-xl rounded-[4rem] p-12 border border-white/10 text-center group hover:bg-white hover:border-white transition-all duration-700 shadow-2xl overflow-hidden relative"
+                                className="bg-white/5 backdrop-blur-xl rounded-[4rem] p-12 border border-white/10 text-center group hover:border-white transition-all duration-700 shadow-2xl overflow-hidden relative"
                             >
                                 <div className="absolute inset-0 bg-brand-red translate-y-full group-hover:translate-y-0 transition-transform duration-700 -z-10" />
                                 <div className="h-32 flex items-center justify-center mb-8">
-                                    <span className="text-5xl md:text-6xl font-serif font-black text-white group-hover:text-white transition-colors tracking-widest">MERIT</span>
+                                    <span className="text-5xl md:text-6xl font-serif font-black text-white transition-colors tracking-widest">MERIT</span>
                                 </div>
                                 <h3 className="text-2xl font-black text-slate-400 group-hover:text-white mb-4 transition-colors uppercase">Consistent Quality</h3>
-                                <p className="text-slate-400 group-hover:text-white/80 transition-colors text-lg italic tracking-tight font-medium">Reliable quality for everyday needs</p>
+                                <p className="text-slate-400 group-hover:text-white/90 transition-colors text-lg italic tracking-tight font-medium">Reliable quality for everyday needs</p>
                             </Motion.div>
                         </Motion.div>
                     </div>
@@ -293,7 +284,7 @@ const Home = () => {
                     <Motion.div
                         {...fadeInUp}
                     >
-                        <h2 className="text-5xl md:text-8xl font-black text-slate-900 mb-8 tracking-tighter leading-[0.8]">
+                        <h2 className="text-5xl sm:text-6xl md:text-8xl font-black text-slate-900 mb-8 tracking-tighter leading-[0.9]">
                             Ready to <span className="text-brand-red">Partner</span> With Us?
                         </h2>
                         <p className="text-xl md:text-2xl text-slate-500 mb-12 max-w-3xl mx-auto font-medium">

@@ -36,7 +36,7 @@ const PageHeader = ({ tagline, title, subtitle, image }) => {
                         </Motion.span>
                     )}
 
-                    <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black text-white mb-8 tracking-tighter leading-[0.85] uppercase drop-shadow-2xl">
+                    <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-[10rem] font-black text-white mb-6 md:mb-8 tracking-tighter leading-[0.9] uppercase drop-shadow-2xl">
                         {title}
                     </h1>
 
@@ -45,7 +45,7 @@ const PageHeader = ({ tagline, title, subtitle, image }) => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 1, delay: 0.6 }}
-                            className="text-lg md:text-2xl text-slate-800 max-w-3xl mx-auto leading-relaxed font-semibold"
+                            className="text-base sm:text-lg md:text-2xl text-slate-900 max-w-3xl mx-auto leading-relaxed font-bold bg-white/10 backdrop-blur-md px-6 py-3 rounded-2xl border border-white/20 inline-block"
                         >
                             {subtitle}
                         </Motion.p>

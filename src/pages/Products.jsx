@@ -64,7 +64,7 @@ const Products = () => {
                 tagline="Finest Catch"
                 title="Premium Products"
                 subtitle="Explore our diverse range of world-class seafood, ethically sourced and frozen to stay fresh."
-                image="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=2070&auto=format&fit=crop"
+                image={`${import.meta.env.BASE_URL}images/products_hero.jpg`} // Assuming a local image or consistent unsplash
             />
 
             {/* Filtering & Listing */}
@@ -78,63 +78,61 @@ const Products = () => {
                         viewport={{ once: true }}
                         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12"
                     >
-                        <AnimatePresence mode="popLayout">
-                            {products.map((product) => (
-                                <Motion.div
-                                    key={product.id}
-                                    variants={fadeInUp}
-                                    whileHover={{ y: -15 }}
-                                    className="group bg-white rounded-[3rem] overflow-hidden shadow-2xl shadow-slate-200/50 border border-slate-50 relative"
-                                >
-                                    {/* Image Container */}
-                                    <div className="relative h-72 md:h-96 overflow-hidden bg-slate-50">
-                                        <img
-                                            src={product.image}
-                                            alt={product.name}
-                                            className="w-full h-full object-contain p-8 transition-transform duration-1000 group-hover:scale-110"
-                                        />
-                                        <div className="absolute top-6 left-6">
-                                            <span className="bg-white/90 backdrop-blur-md text-slate-900 px-5 py-2 rounded-full font-black text-xs uppercase tracking-widest shadow-xl">
-                                                {product.category}
+                        {products.map((product) => (
+                            <Motion.div
+                                key={product.id}
+                                variants={fadeInUp}
+                                whileHover={{ y: -15 }}
+                                className="group bg-white rounded-[3rem] overflow-hidden shadow-2xl shadow-slate-200/50 border border-slate-50 relative"
+                            >
+                                {/* Image Container */}
+                                <div className="relative h-72 md:h-96 overflow-hidden bg-slate-50">
+                                    <img
+                                        src={product.image}
+                                        alt={product.name}
+                                        className="w-full h-full object-contain p-8 transition-transform duration-1000 group-hover:scale-110"
+                                    />
+                                    <div className="absolute top-6 left-6">
+                                        <span className="bg-white/90 backdrop-blur-md text-slate-900 px-5 py-2 rounded-full font-black text-xs uppercase tracking-widest shadow-xl">
+                                            {product.category}
+                                        </span>
+                                    </div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                </div>
+
+                                {/* Content */}
+                                <div className="p-8 md:p-10">
+                                    <div className="flex items-start justify-between mb-4">
+                                        <h3 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight leading-tight group-hover:text-brand-red transition-colors uppercase leading-[0.9]">
+                                            {product.name}
+                                        </h3>
+                                        <div className="p-3 bg-red-50 text-brand-red rounded-2xl opacity-0 group-hover:opacity-100 transition-all -translate-y-2 group-hover:translate-y-0 hidden sm:block">
+                                            <ArrowUpRight size={24} />
+                                        </div>
+                                    </div>
+                                    <p className="text-slate-500 text-base md:text-lg mb-8 font-medium leading-relaxed">
+                                        {product.desc}
+                                    </p>
+
+                                    {/* Specs Tags */}
+                                    <div className="flex flex-wrap gap-2 md:gap-3 mb-10">
+                                        {product.specs.map((spec, i) => (
+                                            <span key={i} className="flex items-center gap-2 bg-slate-50 text-slate-400 px-4 py-1.5 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest border border-slate-100">
+                                                <Star className="w-3 h-3 text-amber-500 fill-amber-500" />
+                                                {spec}
                                             </span>
-                                        </div>
-                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                        ))}
                                     </div>
 
-                                    {/* Content */}
-                                    <div className="p-8 md:p-10">
-                                        <div className="flex items-start justify-between mb-4">
-                                            <h3 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight leading-tight group-hover:text-brand-red transition-colors uppercase leading-[0.9]">
-                                                {product.name}
-                                            </h3>
-                                            <div className="p-3 bg-red-50 text-brand-red rounded-2xl opacity-0 group-hover:opacity-100 transition-all -translate-y-2 group-hover:translate-y-0 hidden sm:block">
-                                                <ArrowUpRight size={24} />
-                                            </div>
-                                        </div>
-                                        <p className="text-slate-500 text-base md:text-lg mb-8 font-medium leading-relaxed">
-                                            {product.desc}
-                                        </p>
-
-                                        {/* Specs Tags */}
-                                        <div className="flex flex-wrap gap-2 md:gap-3 mb-10">
-                                            {product.specs.map((spec, i) => (
-                                                <span key={i} className="flex items-center gap-2 bg-slate-50 text-slate-400 px-4 py-1.5 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest border border-slate-100">
-                                                    <Star className="w-3 h-3 text-amber-500 fill-amber-500" />
-                                                    {spec}
-                                                </span>
-                                            ))}
-                                        </div>
-
-                                        <button
-                                            onClick={() => navigate('/contact')}
-                                            className="w-full py-5 rounded-[2rem] bg-slate-900 text-white font-black text-lg md:text-xl hover:bg-brand-red transition-all duration-500 shadow-xl shadow-slate-900/10 hover:shadow-brand-red/20"
-                                        >
-                                            Request Quote
-                                        </button>
-                                    </div>
-                                </Motion.div>
-                            ))}
-                        </AnimatePresence>
+                                    <button
+                                        onClick={() => navigate('/contact')}
+                                        className="w-full py-5 rounded-[2rem] bg-slate-900 text-white font-black text-lg md:text-xl hover:bg-brand-red transition-all duration-500 shadow-xl shadow-slate-900/10 hover:shadow-brand-red/20"
+                                    >
+                                        Request Quote
+                                    </button>
+                                </div>
+                            </Motion.div>
+                        ))}
                     </Motion.div>
                 </div>
             </section>
@@ -146,7 +144,7 @@ const Products = () => {
                     <div className="text-white max-w-2xl text-center md:text-left">
                         <Motion.h2
                             {...fadeInUp}
-                            className="text-4xl md:text-7xl font-black mb-8 tracking-tighter leading-none"
+                            className="text-4xl sm:text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-tight"
                         >
                             Bulk Orders & <br />Global Exports
                         </Motion.h2>

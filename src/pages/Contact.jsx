@@ -119,10 +119,10 @@ const Contact = () => {
                                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                                 viewport={{ once: true }}
-                                className="bg-white p-10 md:p-16 rounded-[4rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] border border-slate-50 relative overflow-hidden group"
+                                className="bg-slate-900 p-10 md:p-16 rounded-[4rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] border border-slate-800 relative overflow-hidden group"
                             >
                                 {/* Decorative internal gradient */}
-                                <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
 
                                 {isSubmitted ? (
                                     <div className="text-center py-20 relative z-10">
@@ -130,38 +130,38 @@ const Contact = () => {
                                             variants={scaleIn}
                                             initial="initial"
                                             animate="whileInView"
-                                            className="w-24 h-24 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-8 text-green-500"
+                                            className="w-24 h-24 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-8 text-green-500"
                                         >
                                             <CheckCircle2 size={48} strokeWidth={3} />
                                         </Motion.div>
-                                        <h3 className="text-4xl font-black text-slate-900 mb-4 tracking-tighter">Hook, Line, and Sinker!</h3>
-                                        <p className="text-xl text-slate-500 font-medium">Your message has safely reached our shore. We'll reply soon.</p>
+                                        <h3 className="text-4xl font-black text-white mb-4 tracking-tighter">Hook, Line, and Sinker!</h3>
+                                        <p className="text-xl text-slate-400 font-medium">Your message has safely reached our shore. We'll reply soon.</p>
                                     </div>
                                 ) : (
                                     <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                             <div className="space-y-3">
                                                 <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-4">Full Name</label>
-                                                <input required type="text" className="w-full p-6 bg-slate-50 border border-slate-100 rounded-[2rem] text-slate-900 focus:bg-white focus:border-brand-red focus:shadow-[0_0_0_8px_rgba(239,68,68,0.05)] outline-none transition-all font-bold text-lg placeholder:text-slate-300" placeholder="e.g. John Doe" />
+                                                <input required type="text" className="w-full p-6 bg-white/5 border border-white/10 rounded-[2rem] text-white focus:bg-white/10 focus:border-brand-red focus:shadow-[0_0_0_8px_rgba(239,68,68,0.1)] outline-none transition-all font-bold text-lg placeholder:text-slate-600" placeholder="e.g. John Doe" />
                                             </div>
                                             <div className="space-y-3">
                                                 <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-4">Email Address</label>
-                                                <input required type="email" className="w-full p-6 bg-slate-50 border border-slate-100 rounded-[2rem] text-slate-900 focus:bg-white focus:border-brand-red focus:shadow-[0_0_0_8px_rgba(239,68,68,0.05)] outline-none transition-all font-bold text-lg placeholder:text-slate-300" placeholder="john@example.com" />
+                                                <input required type="email" className="w-full p-6 bg-white/5 border border-white/10 rounded-[2rem] text-white focus:bg-white/10 focus:border-brand-red focus:shadow-[0_0_0_8px_rgba(239,68,68,0.1)] outline-none transition-all font-bold text-lg placeholder:text-slate-600" placeholder="john@example.com" />
                                             </div>
                                         </div>
                                         <div className="space-y-3">
                                             <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-4">Inquiry Subject</label>
-                                            <input required type="text" className="w-full p-6 bg-slate-50 border border-slate-100 rounded-[2rem] text-slate-900 focus:bg-white focus:border-brand-red focus:shadow-[0_0_0_8px_rgba(239,68,68,0.05)] outline-none transition-all font-bold text-lg placeholder:text-slate-300" placeholder="How can we help?" />
+                                            <input required type="text" className="w-full p-6 bg-white/5 border border-white/10 rounded-[2rem] text-white focus:bg-white/10 focus:border-brand-red focus:shadow-[0_0_0_8px_rgba(239,68,68,0.1)] outline-none transition-all font-bold text-lg placeholder:text-slate-600" placeholder="How can we help?" />
                                         </div>
                                         <div className="space-y-3">
                                             <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-4">Your Message</label>
-                                            <textarea required rows="4" className="w-full p-6 bg-slate-50 border border-slate-100 rounded-[2rem] text-slate-900 focus:bg-white focus:border-brand-red focus:shadow-[0_0_0_8px_rgba(239,68,68,0.05)] outline-none resize-none transition-all font-bold text-lg placeholder:text-slate-300" placeholder="Describe your requirements..."></textarea>
+                                            <textarea required rows="4" className="w-full p-6 bg-white/5 border border-white/10 rounded-[2rem] text-white focus:bg-white/10 focus:border-brand-red focus:shadow-[0_0_0_8px_rgba(239,68,68,0.1)] outline-none resize-none transition-all font-bold text-lg placeholder:text-slate-600" placeholder="Describe your requirements..."></textarea>
                                         </div>
                                         <Motion.button
                                             whileHover={{ scale: 1.02, y: -4 }}
                                             whileTap={{ scale: 0.98 }}
                                             type="submit"
-                                            className="w-full py-8 bg-slate-900 hover:bg-brand-red text-white font-black text-xl rounded-[2.5rem] flex items-center justify-center gap-4 transition-all duration-500 shadow-2xl shadow-slate-900/10 hover:shadow-brand-red/20"
+                                            className="w-full py-8 bg-brand-red hover:bg-red-600 text-white font-black text-xl rounded-[2.5rem] flex items-center justify-center gap-4 transition-all duration-500 shadow-2xl shadow-brand-red/20 hover:shadow-brand-red/40"
                                         >
                                             Send Message
                                             <Send size={24} strokeWidth={3} />
