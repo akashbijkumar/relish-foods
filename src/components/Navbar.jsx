@@ -172,41 +172,40 @@ const Navbar = () => {
             <AnimatePresence>
                 {isOpen && (
                     <>
-                        {/* Backdrop */}
+                        {/* Simplified Backdrop */}
                         <Motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             onClick={() => setIsOpen(false)}
-                            className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[90] lg:hidden"
+                            className="fixed inset-0 bg-slate-950/60 backdrop-blur-md z-[90] lg:hidden"
                         />
 
-                        {/* Side Menu */}
+                        {/* Side Menu - Dark Theme */}
                         <Motion.div
                             initial={{ x: "-100%" }}
                             animate={{ x: 0 }}
                             exit={{ x: "-100%" }}
-                            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                            className="fixed top-0 left-0 bottom-0 w-[80%] sm:w-[75%] max-w-[400px] bg-white z-[100] lg:hidden shadow-2xl overflow-hidden"
+                            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                            className="fixed top-0 left-0 bottom-0 w-[80%] sm:w-[75%] max-w-[400px] bg-slate-900 border-r border-white/5 z-[100] lg:hidden shadow-2xl overflow-hidden"
                         >
-                            {/* Dynamic Animated Background */}
-                            <div className="absolute inset-0 z-0">
+                            {/* Performance-Optimized Background Glows */}
+                            <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
                                 <Motion.div
                                     animate={{
-                                        scale: [1, 1.2, 1],
-                                        rotate: [0, 90, 180, 270, 360],
+                                        rotate: [0, 360],
                                     }}
                                     transition={{
-                                        duration: 20,
+                                        duration: 30,
                                         repeat: Infinity,
                                         ease: "linear"
                                     }}
-                                    className="absolute top-[-20%] left-[-20%] w-[140%] h-[140%] flex flex-wrap"
+                                    className="absolute top-[-10%] left-[-10%] w-[120%] h-[120%] flex flex-wrap"
                                 >
-                                    <div className="w-1/2 h-1/2 bg-[#4285F4]/15 blur-[80px] rounded-full" />
-                                    <div className="w-1/2 h-1/2 bg-[#EA4335]/15 blur-[80px] rounded-full" />
-                                    <div className="w-1/2 h-1/2 bg-[#FBBC05]/15 blur-[80px] rounded-full" />
-                                    <div className="w-1/2 h-1/2 bg-[#34A853]/15 blur-[80px] rounded-full" />
+                                    <div className="w-1/2 h-1/2 bg-[#4285F4]/10 blur-[60px]" />
+                                    <div className="w-1/2 h-1/2 bg-[#EA4335]/10 blur-[60px]" />
+                                    <div className="w-1/2 h-1/2 bg-[#FBBC05]/10 blur-[60px]" />
+                                    <div className="w-1/2 h-1/2 bg-[#34A853]/10 blur-[60px]" />
                                 </Motion.div>
                             </div>
 
@@ -224,20 +223,20 @@ const Navbar = () => {
                                     </Link>
                                     <button
                                         onClick={() => setIsOpen(false)}
-                                        className="w-10 h-10 flex items-center justify-center text-slate-900 bg-slate-100 rounded-full hover:bg-slate-200 transition-colors"
+                                        className="w-10 h-10 flex items-center justify-center text-white bg-white/10 rounded-full hover:bg-white/20 transition-colors"
                                     >
                                         <X size={20} />
                                     </button>
                                 </div>
 
                                 {/* Navigation Links */}
-                                <div className="flex flex-col space-y-2 items-start justify-center flex-1">
+                                <div className="flex flex-col space-y-1 items-start justify-center flex-1">
                                     {mobileLinks.map((link, i) => (
                                         <Motion.div
                                             key={link.name}
-                                            initial={{ opacity: 0, x: -30 }}
+                                            initial={{ opacity: 0, x: -20 }}
                                             animate={{ opacity: 1, x: 0 }}
-                                            transition={{ delay: 0.1 + (i * 0.08), ease: [0.22, 1, 0.36, 1] }}
+                                            transition={{ delay: 0.05 * (i + 1), ease: "easeOut" }}
                                             className="w-full relative group"
                                         >
                                             <Link
@@ -245,10 +244,10 @@ const Navbar = () => {
                                                 onClick={() => setIsOpen(false)}
                                                 className="flex items-center gap-4 py-3"
                                             >
-                                                <span className={`text-[10px] sm:text-xs font-black tracking-widest transition-colors duration-300 w-6 ${isActive(link.path) ? 'text-brand-red' : 'text-slate-300 group-hover:text-brand-red'}`}>
+                                                <span className={`text-[10px] sm:text-xs font-black tracking-widest transition-colors duration-300 w-6 ${isActive(link.path) ? 'text-brand-red' : 'text-white/20 group-hover:text-brand-red'}`}>
                                                     {i + 1}
                                                 </span>
-                                                <span className={`text-2xl sm:text-3xl font-black tracking-tighter transition-all duration-300 ${isActive(link.path) ? 'text-slate-900 scale-105 origin-left' : 'text-slate-500 hover:text-slate-900 hover:translate-x-2'}`}>
+                                                <span className={`text-2xl sm:text-3xl font-black tracking-tighter transition-all duration-300 ${isActive(link.path) ? 'text-white scale-105 origin-left' : 'text-white/60 hover:text-white hover:translate-x-2'}`}>
                                                     {link.name}
                                                 </span>
                                                 {isActive(link.path) && (
@@ -263,17 +262,17 @@ const Navbar = () => {
                                 </div>
 
                                 {/* Mobile Menu Footer */}
-                                <div className="mt-8 pt-8 border-t border-slate-100">
+                                <div className="mt-8 pt-8 border-t border-white/5">
                                     <div className="flex flex-col gap-4">
                                         <div className="space-y-0.5">
-                                            <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">Quick Connect</p>
-                                            <a href="mailto:info@relishfoods.in" className="text-slate-900 text-sm font-bold hover:text-brand-red transition-colors">info@relishfoods.in</a>
+                                            <p className="text-white/30 text-[10px] font-black uppercase tracking-[0.2em]">Quick Connect</p>
+                                            <a href="mailto:info@relishfoods.in" className="text-white text-sm font-bold hover:text-brand-red transition-colors">info@relishfoods.in</a>
                                         </div>
                                         <div className="flex gap-3">
-                                            <a href="tel:+914772267333" className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-900 hover:bg-brand-red hover:text-white transition-all duration-300">
+                                            <a href="tel:+914772267333" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-brand-red hover:text-white transition-all duration-300">
                                                 <Phone size={16} />
                                             </a>
-                                            <a href="mailto:info@relishfoods.in" className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-900 hover:bg-brand-red hover:text-white transition-all duration-300">
+                                            <a href="mailto:info@relishfoods.in" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-brand-red hover:text-white transition-all duration-300">
                                                 <Mail size={16} />
                                             </a>
                                         </div>

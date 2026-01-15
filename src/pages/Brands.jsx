@@ -10,7 +10,7 @@ const Brands = () => {
                 tagline="Our Powerhouses"
                 title="Global Brands"
                 subtitle="Discover our internationally acclaimed brands, each standing for quality, tradition, and pure oceanic goodness."
-                image="https://images.unsplash.com/photo-1516939884455-1445c8652f83?q=80&w=2070&auto=format&fit=crop"
+                image={`${import.meta.env.BASE_URL}images/brands_bg_fish.png`}
             />
 
             {/* Apsara Brand Section */}
