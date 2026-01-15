@@ -15,7 +15,7 @@ const Footer = () => {
                             <div className="bg-red-600 p-2 rounded-xl group-hover:rotate-12 transition-transform shadow-lg shadow-red-600/20">
                                 <Waves className="w-6 h-6 text-white" />
                             </div>
-                            <span className="text-3xl font-black text-white tracking-tighter">RELISH FOODS <span className="text-red-600">INDIA</span></span>
+                            <span className="text-3xl font-black text-white tracking-tighter">RELISH FOODS</span>
                         </Link>
                         <p className="text-slate-400 text-lg leading-relaxed mb-8 font-medium">
                             A legacy of five decades in bringing the ocean's finest bounty to the world stage. Committed to safety, quality, and absolute freshness.
@@ -80,7 +80,7 @@ const Footer = () => {
                 {/* Bottom Bar */}
                 <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
                     <p className="text-slate-500 font-bold text-center md:text-left">
-                        &copy; {currentYear} Relish Foods India. All Rights Reserved.
+                        &copy; {currentYear} Relish Foods. All Rights Reserved.
                     </p>
                     <div className="flex flex-wrap justify-center gap-8 md:gap-12">
                         <a href="#" className="text-slate-500 hover:text-white transition-all text-xs font-black uppercase tracking-[0.2em] hover:translate-x-1">Privacy Policy</a>
