@@ -27,7 +27,7 @@ const Home = () => {
                 </Motion.div>
 
                 {/* Hero Content */}
-                <div className="relative z-10 text-center px-6 max-w-7xl mx-auto mt-20">
+                <div className="relative z-10 text-center px-6 max-w-7xl mx-auto mt-28">
                     <Motion.div
                         variants={staggerContainer}
                         initial="initial"
@@ -40,14 +40,14 @@ const Home = () => {
                         <HeroBadge text={`Est. ${COMPANY_INFO.established} · Global Excellence`} />
 
                         {/* Main Heading */}
-                        <div className="overflow-hidden mb-8">
+                        <div className="overflow-hidden mb-12">
                             <Motion.h1
                                 initial={{ y: 50, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ delay: 0.4, duration: 1, ease: [0.22, 1, 0.36, 1] }}
                                 className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] font-black text-white leading-[1.1] tracking-tighter"
                             >
-                                The <span className="text-brand-red italic underline decoration-white/20 underline-offset-8">Gold Standard</span>
+                                The <span className="text-brand-red italic underline decoration-white/20 underline-offset-[12px]">Gold Standard</span>
                                 <br />
                                 of Seafood
                             </Motion.h1>
@@ -58,7 +58,7 @@ const Home = () => {
                             initial={{ scaleX: 0, opacity: 0 }}
                             animate={{ scaleX: 1, opacity: 1 }}
                             transition={{ delay: 0.6, duration: 0.8 }}
-                            className="w-24 h-1.5 bg-brand-red mb-10 rounded-full"
+                            className="w-24 h-1.5 bg-brand-red mb-12 rounded-full"
                         />
 
                         {/* Subheading */}
