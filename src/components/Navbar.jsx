@@ -2,6 +2,40 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import { motion as Motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
+import { COMPANY_INFO } from '../constants/companyInfo';
+
+const NavLink = ({ link, active, isScrolled }) => {
+    return (
+        <div className="relative group">
+            <Link
+                to={link.path}
+                className={`relative px-4 py-2 text-sm font-bold uppercase tracking-widest transition-colors duration-300 z-10 flex items-center justify-center ${active
+                    ? 'text-brand-red'
+                    : isScrolled ? 'text-slate-900 hover:text-brand-red' : 'text-slate-900 lg:text-white hover:text-brand-red'
+                    }`}
+            >
+                {link.name}
+                {/* Hover Pill Effect */}
+                <Motion.span
+                    className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
+                    layoutId="hover-pill"
+                    transition={{ duration: 0.2 }}
+                />
+            </Link>
+
+            {/* Active Indicator Dot */}
+            {active && (
+                <Motion.div
+                    layoutId="nav-dot"
+                    className="absolute -bottom-1 left-0 right-0 mx-auto w-1.5 h-1.5 bg-brand-red rounded-full"
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                />
+            )}
+        </div>
+    );
+};
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -67,41 +101,6 @@ const Navbar = () => {
 
     const isActive = (path) => location.pathname === path;
 
-    const NavLink = ({ link }) => {
-        const active = isActive(link.path);
-
-        return (
-            <div className="relative group">
-                <Link
-                    to={link.path}
-                    className={`relative px-4 py-2 text-sm font-bold uppercase tracking-widest transition-colors duration-300 z-10 flex items-center justify-center ${active
-                        ? 'text-brand-red'
-                        : isScrolled ? 'text-slate-900 hover:text-brand-red' : 'text-slate-900 lg:text-white hover:text-brand-red'
-                        }`}
-                >
-                    {link.name}
-                    {/* Hover Pill Effect */}
-                    <Motion.span
-                        className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
-                        layoutId="hover-pill"
-                        transition={{ duration: 0.2 }}
-                    />
-                </Link>
-
-                {/* Active Indicator Dot */}
-                {active && (
-                    <Motion.div
-                        layoutId="nav-dot"
-                        className="absolute -bottom-1 left-0 right-0 mx-auto w-1.5 h-1.5 bg-brand-red rounded-full"
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    />
-                )}
-            </div>
-        );
-    };
-
     return (
         <>
             <Motion.nav
@@ -120,7 +119,7 @@ const Navbar = () => {
                         {/* Left Navigation */}
                         <div className="hidden lg:flex items-center space-x-2 flex-1 justify-end pr-32">
                             {leftLinks.map((link) => (
-                                <NavLink key={link.name} link={link} />
+                                <NavLink key={link.name} link={link} active={isActive(link.path)} isScrolled={isScrolled} />
                             ))}
                         </div>
 
@@ -136,7 +135,7 @@ const Navbar = () => {
                                 >
                                     <img
                                         src={`${import.meta.env.BASE_URL}images/logo.png`}
-                                        alt="Relish Foods"
+                                        alt={COMPANY_INFO.name}
                                         className={`${isScrolled ? 'h-10 md:h-12' : 'h-12 md:h-16'} w-auto object-contain transition-all duration-500`}
                                     />
                                 </Motion.div>
@@ -146,7 +145,7 @@ const Navbar = () => {
                         {/* Right Navigation */}
                         <div className="hidden lg:flex items-center space-x-2 flex-1 justify-start pl-32">
                             {rightLinks.map((link) => (
-                                <NavLink key={link.name} link={link} />
+                                <NavLink key={link.name} link={link} active={isActive(link.path)} isScrolled={isScrolled} />
                             ))}
                         </div>
 
@@ -189,7 +188,7 @@ const Navbar = () => {
                             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                             className="fixed top-0 left-0 bottom-0 w-[80%] sm:w-[75%] max-w-[400px] bg-slate-900 border-r border-white/5 z-[100] lg:hidden shadow-2xl overflow-hidden"
                         >
-                            {/* Performance-Optimized Background Glows */}
+                            {/* Brand-Aligned Background Glows */}
                             <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
                                 <Motion.div
                                     animate={{
@@ -202,10 +201,10 @@ const Navbar = () => {
                                     }}
                                     className="absolute top-[-10%] left-[-10%] w-[120%] h-[120%] flex flex-wrap"
                                 >
-                                    <div className="w-1/2 h-1/2 bg-[#4285F4]/10 blur-[60px]" />
-                                    <div className="w-1/2 h-1/2 bg-[#EA4335]/10 blur-[60px]" />
-                                    <div className="w-1/2 h-1/2 bg-[#FBBC05]/10 blur-[60px]" />
-                                    <div className="w-1/2 h-1/2 bg-[#34A853]/10 blur-[60px]" />
+                                    <div className="w-1/2 h-1/2 bg-brand-red/10 blur-[60px]" />
+                                    <div className="w-1/2 h-1/2 bg-slate-800/20 blur-[60px]" />
+                                    <div className="w-1/2 h-1/2 bg-brand-red/5 blur-[60px]" />
+                                    <div className="w-1/2 h-1/2 bg-slate-700/10 blur-[60px]" />
                                 </Motion.div>
                             </div>
 
@@ -216,7 +215,7 @@ const Navbar = () => {
                                         <div className="bg-white p-2 rounded-xl shadow-lg border border-slate-100">
                                             <img
                                                 src={`${import.meta.env.BASE_URL}images/logo.png`}
-                                                alt="Relish Foods"
+                                                alt={COMPANY_INFO.name}
                                                 className="h-8 w-auto object-contain"
                                             />
                                         </div>
@@ -266,13 +265,13 @@ const Navbar = () => {
                                     <div className="flex flex-col gap-4">
                                         <div className="space-y-0.5">
                                             <p className="text-white/30 text-[10px] font-black uppercase tracking-[0.2em]">Quick Connect</p>
-                                            <a href="mailto:info@relishfoods.in" className="text-white text-sm font-bold hover:text-brand-red transition-colors">info@relishfoods.in</a>
+                                            <a href={`mailto:${COMPANY_INFO.email}`} className="text-white text-sm font-bold hover:text-brand-red transition-colors">{COMPANY_INFO.email}</a>
                                         </div>
                                         <div className="flex gap-3">
-                                            <a href="tel:+914772267333" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-brand-red hover:text-white transition-all duration-300">
+                                            <a href={`tel:${COMPANY_INFO.phone}`} className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-brand-red hover:text-white transition-all duration-300">
                                                 <Phone size={16} />
                                             </a>
-                                            <a href="mailto:info@relishfoods.in" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-brand-red hover:text-white transition-all duration-300">
+                                            <a href={`mailto:${COMPANY_INFO.email}`} className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-brand-red hover:text-white transition-all duration-300">
                                                 <Mail size={16} />
                                             </a>
                                         </div>

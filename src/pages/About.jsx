@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Anchor, ShieldCheck, Lightbulb, Target } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import { fadeInUp } from '../utils/animations';
+import { COMPANY_INFO } from '../constants/companyInfo';
 
 const About = () => {
     const values = [
@@ -11,7 +12,7 @@ const About = () => {
             title: "Total Quality Control",
             desc: "We never compromise. Every batch undergoes rigorous inspection in our state-of-the-art laboratory.",
             icon: <ShieldCheck className="w-8 h-8" />,
-            color: "from-green-600 to-green-400"
+            color: "from-brand-red to-red-400"
         },
         {
             title: "Ocean Sustainability",
@@ -53,7 +54,7 @@ const About = () => {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 className="inline-block px-4 py-1 bg-brand-red text-white font-black tracking-widest uppercase text-xs rounded-full mb-8"
                             >
-                                Established 1972
+                                Established {COMPANY_INFO.established}
                             </Motion.span>
                             <h2 className="text-4xl md:text-7xl font-black text-slate-900 mb-8 tracking-tighter leading-[0.9]">
                                 Five Decades of <br />
@@ -61,18 +62,18 @@ const About = () => {
                             </h2>
                             <div className="space-y-6 text-lg md:text-xl text-slate-600 leading-relaxed font-medium">
                                 <p>
-                                    Relish Foods India was established with a singular vision: to bring the authentic, pristine taste of Indian coastal seafood to the global Stage.
+                                    {COMPANY_INFO.name} India was established with a singular vision: to bring the authentic, pristine taste of Indian coastal seafood to the global Stage.
                                 </p>
                                 <p>
                                     Headquartered in Alappuzha, the Venice of the East, we sit at the heart of Kerala's bounty. Our direct access to the Arabian Sea ensures we process what we catch, instantly.
                                 </p>
                                 <div className="grid grid-cols-2 gap-8 pt-10">
                                     <div className="group border-l-4 border-brand-red pl-6 transition-all duration-500 hover:pl-10">
-                                        <p className="text-5xl md:text-6xl font-black text-slate-900 mb-1 tracking-tighter">50+</p>
+                                        <p className="text-5xl md:text-6xl font-black text-slate-900 mb-1 tracking-tighter">{COMPANY_INFO.stats.yearsLegacy}</p>
                                         <p className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-slate-400">Years Legacy</p>
                                     </div>
                                     <div className="group border-l-4 border-slate-900 pl-6 transition-all duration-500 hover:pl-10">
-                                        <p className="text-5xl md:text-6xl font-black text-slate-900 mb-1 tracking-tighter">30+</p>
+                                        <p className="text-5xl md:text-6xl font-black text-slate-900 mb-1 tracking-tighter">{COMPANY_INFO.stats.exportNations}</p>
                                         <p className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-slate-400">Export Nations</p>
                                     </div>
                                 </div>

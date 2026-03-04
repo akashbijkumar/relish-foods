@@ -2,6 +2,7 @@ import { ArrowRight, Anchor, ShieldCheck, Globe, Waves } from 'lucide-react';
 import { motion as Motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { fadeInUp, staggerContainer } from '../utils/animations';
+import { COMPANY_INFO } from '../constants/companyInfo';
 
 const Home = () => {
     return (
@@ -17,8 +18,8 @@ const Home = () => {
                     className="absolute inset-0 z-0"
                 >
                     <img
-                        src={`${import.meta.env.BASE_URL}images/hero_fresh_indian.png`}
-                        alt="Premium Seafood from India"
+                        src={`${import.meta.env.BASE_URL}images/hero_fresh_indian.jpg`}
+                        alt={COMPANY_INFO.name}
                         fetchpriority="high"
                         className="w-full h-full object-cover"
                     />
@@ -43,7 +44,7 @@ const Home = () => {
                             className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-5 py-2 mb-8 backdrop-blur-md"
                         >
                             <span className="w-2 h-2 rounded-full bg-brand-red animate-pulse" />
-                            <span className="text-sm font-medium text-white/90 tracking-[0.2em] uppercase">Est. 1972 · Global Excellence</span>
+                            <span className="text-sm font-medium text-white/90 tracking-[0.2em] uppercase">Est. {COMPANY_INFO.established} · Global Excellence</span>
                         </Motion.div>
 
                         {/* Main Heading */}

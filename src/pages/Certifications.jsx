@@ -2,6 +2,7 @@ import { motion as Motion } from 'framer-motion';
 import { ShieldCheck, Flag, ExternalLink, CheckCircle, FileText } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import { staggerContainer } from '../utils/animations';
+import { COMPANY_INFO } from '../constants/companyInfo';
 
 const Certifications = () => {
     const certs = [

@@ -3,7 +3,7 @@ import { motion as Motion } from 'framer-motion';
 import { Star, ArrowUpRight } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import { fadeInUp } from '../utils/animations';
-
+import { COMPANY_INFO } from '../constants/companyInfo';
 
 const Products = () => {
     const navigate = useNavigate();
@@ -65,7 +65,7 @@ const Products = () => {
                 tagline="Finest Catch"
                 title="Premium Products"
                 subtitle="Explore our diverse range of world-class seafood, ethically sourced and frozen to stay fresh."
-                image={`${import.meta.env.BASE_URL}images/brands_bg_fish.png`}
+                image={`${import.meta.env.BASE_URL}images/brands_bg_fish.jpg`}
             />
 
 

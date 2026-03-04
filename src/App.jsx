@@ -4,6 +4,7 @@ import { AnimatePresence, motion as Motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import PageWrapper from './components/PageWrapper';
 
 // Lazy load pages for better performance
 const Home = lazy(() => import('./pages/Home'));
@@ -21,6 +22,16 @@ const PageLoader = () => (
   </div>
 );
 
+const routes = [
+  { path: '/', element: <Home /> },
+  { path: '/about', element: <About /> },
+  { path: '/products', element: <Products /> },
+  { path: '/process', element: <Process /> },
+  { path: '/brands', element: <Brands /> },
+  { path: '/certifications', element: <Certifications /> },
+  { path: '/contact', element: <Contact /> },
+];
+
 const AnimatedRoutes = () => {
   const location = useLocation();
 
@@ -28,97 +39,13 @@ const AnimatedRoutes = () => {
     <Suspense fallback={<PageLoader />}>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
-          <Route
-            path="/"
-            element={
-              <Motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Home />
-              </Motion.div>
-            }
-          />
-          <Route
-            path="/about"
-            element={
-              <Motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.5 }}
-              >
-                <About />
-              </Motion.div>
-            }
-          />
-          <Route
-            path="/products"
-            element={
-              <Motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Products />
-              </Motion.div>
-            }
-          />
-          <Route
-            path="/process"
-            element={
-              <Motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Process />
-              </Motion.div>
-            }
-          />
-          <Route
-            path="/brands"
-            element={
-              <Motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Brands />
-              </Motion.div>
-            }
-          />
-          <Route
-            path="/certifications"
-            element={
-              <Motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Certifications />
-              </Motion.div>
-            }
-          />
-          <Route
-            path="/contact"
-            element={
-              <Motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Contact />
-              </Motion.div>
-            }
-          />
+          {routes.map(({ path, element }) => (
+            <Route
+              key={path}
+              path={path}
+              element={<PageWrapper>{element}</PageWrapper>}
+            />
+          ))}
         </Routes>
       </AnimatePresence>
     </Suspense>
