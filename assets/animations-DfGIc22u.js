@@ -1,0 +1,1 @@
+const i={initial:{opacity:0,y:30},whileInView:{opacity:1,y:0},viewport:{once:!0,amount:.1},transition:{duration:.8,ease:[.22,1,.36,1]}},a={initial:{},whileInView:{transition:{staggerChildren:.1,delayChildren:.1}}},t={initial:{opacity:0,scale:.9},whileInView:{opacity:1,scale:1},viewport:{once:!0,amount:.1},transition:{duration:.6,ease:[.22,1,.36,1]}};export{t as a,i as f,a as s};
