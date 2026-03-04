@@ -19,6 +19,7 @@ const Home = () => {
                     <img
                         src={`${import.meta.env.BASE_URL}images/hero_fresh_indian.png`}
                         alt="Premium Seafood from India"
+                        fetchpriority="high"
                         className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/50 to-slate-900/80 backdrop-blur-[2px]" />

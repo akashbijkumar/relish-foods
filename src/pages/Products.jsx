@@ -87,6 +87,8 @@ const Products = () => {
                                     <img
                                         src={product.image}
                                         alt={product.name}
+                                        loading="lazy"
+                                        decoding="async"
                                         className="w-full h-full object-contain p-8 transition-transform duration-1000 group-hover:scale-110"
                                     />
                                     <div className="absolute top-6 left-6">

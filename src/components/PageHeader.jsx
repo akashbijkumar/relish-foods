@@ -13,6 +13,8 @@ const PageHeader = ({ tagline, title, subtitle, image }) => {
                     style={{ willChange: 'transform, filter' }}
                     src={image}
                     alt={title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover opacity-50"
                 />
 
