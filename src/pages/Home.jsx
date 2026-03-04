@@ -42,9 +42,9 @@ const Home = () => {
                         {/* Main Heading */}
                         <div className="overflow-hidden mb-12">
                             <Motion.h1
-                                initial={{ y: 50, opacity: 0 }}
+                                initial={{ y: 30, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
-                                transition={{ delay: 0.4, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                                transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                                 className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] font-black text-white leading-[1.1] tracking-tighter"
                             >
                                 The <span className="text-brand-red italic underline decoration-white/20 underline-offset-[12px]">Gold Standard</span>
@@ -57,15 +57,15 @@ const Home = () => {
                         <Motion.div
                             initial={{ scaleX: 0, opacity: 0 }}
                             animate={{ scaleX: 1, opacity: 1 }}
-                            transition={{ delay: 0.6, duration: 0.8 }}
+                            transition={{ delay: 0.5, duration: 0.6 }}
                             className="w-24 h-1.5 bg-brand-red mb-12 rounded-full"
                         />
 
                         {/* Subheading */}
                         <Motion.p
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.8, duration: 0.8 }}
+                            transition={{ delay: 0.6, duration: 0.8 }}
                             className="text-lg sm:text-xl md:text-2xl text-slate-200 mb-12 max-w-2xl mx-auto leading-relaxed font-medium"
                         >
                             Exporting premium quality catch from the pristine waters of the Arabian Sea to over 30 countries worldwide.
@@ -73,9 +73,9 @@ const Home = () => {
 
                         {/* CTA Buttons - Unified Red Theme */}
                         <Motion.div
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 1.0, duration: 0.8 }}
+                            transition={{ delay: 0.8, duration: 0.8 }}
                             className="flex flex-wrap items-center justify-center gap-6"
                         >
                             <Link

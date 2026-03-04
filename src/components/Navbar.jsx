@@ -11,13 +11,13 @@ const NavLink = ({ link, active, isScrolled }) => {
                 to={link.path}
                 className={`relative px-4 py-2 text-sm font-bold uppercase tracking-widest transition-colors duration-300 z-10 flex items-center justify-center ${active
                     ? 'text-brand-red'
-                    : isScrolled ? 'text-slate-900 hover:text-brand-red' : 'text-slate-900 lg:text-white hover:text-brand-red'
+                    : isScrolled ? 'text-white hover:text-brand-red' : 'text-slate-900 lg:text-white hover:text-brand-red'
                     }`}
             >
                 {link.name}
                 {/* Hover Pill Effect */}
                 <Motion.span
-                    className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
+                    className="absolute inset-0 rounded-full bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
                     layoutId="hover-pill"
                     transition={{ duration: 0.2 }}
                 />
@@ -47,31 +47,37 @@ const Navbar = () => {
     const backgroundColor = useTransform(
         scrollY,
         [0, 80],
-        ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.95)"]
+        ["rgba(15, 23, 42, 0)", "rgba(15, 23, 42, 0.8)"] // Midnight Glass
     );
 
     const backdropFilter = useTransform(
         scrollY,
         [0, 80],
-        ["blur(0px)", "blur(16px)"]
+        ["blur(0px)", "blur(20px)"]
     );
 
     const navPadding = useTransform(
         scrollY,
         [0, 80],
-        ["20px", "10px"]
+        ["24px", "12px"]
     );
 
     const logoScale = useTransform(
         scrollY,
         [0, 80],
-        [0.9, 0.75]
+        [0.9, 0.7]
     );
 
     const shadow = useTransform(
         scrollY,
         [0, 80],
-        ["0px 0px 0px rgba(0,0,0,0)", "0px 10px 40px rgba(0,0,0,0.1)"]
+        ["0px 0px 0px rgba(0,0,0,0)", "0px 10px 50px rgba(0,0,0,0.3)"]
+    );
+
+    const borderBottom = useTransform(
+        scrollY,
+        [0, 80],
+        ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.05)"]
     );
 
     useMotionValueEvent(scrollY, "change", (latest) => {
@@ -109,9 +115,10 @@ const Navbar = () => {
                     backdropFilter,
                     paddingTop: navPadding,
                     paddingBottom: navPadding,
-                    boxShadow: shadow
+                    boxShadow: shadow,
+                    borderBottomColor: borderBottom
                 }}
-                className="fixed w-full z-50 top-0 left-0 border-b border-transparent"
+                className="fixed w-full z-50 top-0 left-0 border-b transition-colors duration-500"
             >
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="flex items-center justify-between relative">
@@ -128,7 +135,7 @@ const Navbar = () => {
                             <Link to="/">
                                 <Motion.div
                                     style={{ scale: logoScale }}
-                                    className={`relative flex items-center justify-center rounded-full transition-all duration-700 ${isScrolled ? 'bg-transparent p-1' : 'bg-white p-3 shadow-xl border border-slate-100'
+                                    className={`relative flex items-center justify-center rounded-2xl transition-all duration-700 ${isScrolled ? 'bg-white/5 backdrop-blur-md p-1.5 border border-white/10' : 'bg-white p-3 shadow-2xl border border-slate-100'
                                         }`}
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
@@ -153,7 +160,7 @@ const Navbar = () => {
                         <div className="lg:hidden absolute left-0 top-1/2 -translate-y-1/2">
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
-                                className={`relative w-10 h-10 flex flex-col justify-center items-center group z-[110] transition-colors ${isScrolled || isOpen ? 'text-slate-900' : 'text-white'
+                                className={`relative w-10 h-10 flex flex-col justify-center items-center group z-[110] transition-colors ${isOpen ? 'text-white' : isScrolled ? 'text-white' : 'text-white md:text-white'
                                     }`}
                                 aria-label="Toggle Menu"
                             >
@@ -177,7 +184,7 @@ const Navbar = () => {
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             onClick={() => setIsOpen(false)}
-                            className="fixed inset-0 bg-slate-950/60 backdrop-blur-md z-[90] lg:hidden"
+                            className="fixed inset-0 bg-slate-950/80 backdrop-blur-xl z-[90] lg:hidden"
                         />
 
                         {/* Side Menu - Dark Theme */}
@@ -185,27 +192,13 @@ const Navbar = () => {
                             initial={{ x: "-100%" }}
                             animate={{ x: 0 }}
                             exit={{ x: "-100%" }}
-                            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                            className="fixed top-0 left-0 bottom-0 w-[80%] sm:w-[75%] max-w-[400px] bg-slate-900 border-r border-white/5 z-[100] lg:hidden shadow-2xl overflow-hidden"
+                            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                            className="fixed top-0 left-0 bottom-0 w-[85%] sm:w-[75%] max-w-[400px] bg-slate-950 border-r border-white/5 z-[100] lg:hidden shadow-2xl overflow-hidden"
                         >
-                            {/* Brand-Aligned Background Glows */}
-                            <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
-                                <Motion.div
-                                    animate={{
-                                        rotate: [0, 360],
-                                    }}
-                                    transition={{
-                                        duration: 30,
-                                        repeat: Infinity,
-                                        ease: "linear"
-                                    }}
-                                    className="absolute top-[-10%] left-[-10%] w-[120%] h-[120%] flex flex-wrap"
-                                >
-                                    <div className="w-1/2 h-1/2 bg-brand-red/10 blur-[60px]" />
-                                    <div className="w-1/2 h-1/2 bg-slate-800/20 blur-[60px]" />
-                                    <div className="w-1/2 h-1/2 bg-brand-red/5 blur-[60px]" />
-                                    <div className="w-1/2 h-1/2 bg-slate-700/10 blur-[60px]" />
-                                </Motion.div>
+                            {/* Static Optimized Background Glows for Mobile Performance */}
+                            <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
+                                <div className="absolute top-[-10%] left-[-10%] w-full h-full bg-brand-red/20 blur-[100px] rounded-full" />
+                                <div className="absolute bottom-[-10%] right-[-10%] w-full h-full bg-slate-800/40 blur-[100px] rounded-full" />
                             </div>
 
                             <div className="relative z-10 flex flex-col h-full p-6 sm:p-8">
