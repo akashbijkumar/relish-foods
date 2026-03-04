@@ -78,19 +78,23 @@ const Home = () => {
                             transition={{ delay: 0.8, duration: 0.8 }}
                             className="flex flex-wrap items-center justify-center gap-6"
                         >
-                            <Link
-                                to="/products"
-                                className="group relative inline-flex items-center justify-center min-w-[220px] bg-brand-red text-white font-black text-sm tracking-widest uppercase px-10 py-5 rounded-full hover:bg-white hover:text-brand-red hover:shadow-[0_20px_40px_-10px_rgba(227,30,36,0.4)] hover:-translate-y-1 transition-all duration-500"
-                            >
-                                Explore Products
-                            </Link>
+                            <Motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                                <Link
+                                    to="/products"
+                                    className="group relative inline-flex items-center justify-center min-w-[220px] bg-brand-red text-white font-black text-sm tracking-widest uppercase px-10 py-5 rounded-full hover:bg-white hover:text-brand-red hover:shadow-[0_20px_40px_-10px_rgba(227,30,36,0.4)] transition-all duration-500"
+                                >
+                                    Explore Products
+                                </Link>
+                            </Motion.div>
 
-                            <Link
-                                to="/about"
-                                className="group relative inline-flex items-center justify-center min-w-[220px] bg-white text-slate-900 font-black text-sm tracking-widest uppercase px-10 py-5 rounded-full hover:bg-brand-red hover:text-white hover:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.2)] hover:-translate-y-1 transition-all duration-500"
-                            >
-                                Our Heritage
-                            </Link>
+                            <Motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                                <Link
+                                    to="/about"
+                                    className="group relative inline-flex items-center justify-center min-w-[220px] bg-white text-slate-900 font-black text-sm tracking-widest uppercase px-10 py-5 rounded-full hover:bg-brand-red hover:text-white hover:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.2)] transition-all duration-500"
+                                >
+                                    Our Heritage
+                                </Link>
+                            </Motion.div>
                         </Motion.div>
                     </Motion.div>
                 </div>
@@ -178,6 +182,7 @@ const Home = () => {
                                 {...fadeInUp}
                                 transition={{ ...fadeInUp.transition, delay: (index % 3) * 0.1 }}
                                 whileHover={{ y: -15, scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
                                 className="group relative bg-white p-10 md:p-12 rounded-[3.5rem] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-[0_40px_80px_-20px_rgba(239,68,68,0.25)] hover:bg-brand-red/[0.12] hover:border-brand-red/30 transition-all duration-500"
                             >
                                 <div className={`inline-flex items-center justify-center w-20 h-20 rounded-3xl mb-8 ${feature.color} text-white shadow-xl transition-transform group-hover:scale-110 group-hover:rotate-6 duration-500`}>
@@ -227,6 +232,8 @@ const Home = () => {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 relative">
                             <Motion.div
                                 {...fadeInUp}
+                                whileHover={{ y: -10 }}
+                                whileTap={{ scale: 0.98 }}
                                 className="bg-white/5 backdrop-blur-xl rounded-[4rem] p-12 border border-white/10 text-center group hover:border-brand-red/50 transition-all duration-700 shadow-2xl relative overflow-hidden"
                             >
                                 <div className="absolute inset-0 bg-brand-red translate-y-full group-hover:translate-y-0 transition-transform duration-700 -z-10" />
@@ -240,6 +247,8 @@ const Home = () => {
                             <Motion.div
                                 {...fadeInUp}
                                 transition={{ ...fadeInUp.transition, delay: 0.2 }}
+                                whileHover={{ y: -10 }}
+                                whileTap={{ scale: 0.98 }}
                                 className="bg-white/5 backdrop-blur-xl rounded-[4rem] p-12 border border-white/10 text-center group hover:border-white transition-all duration-700 shadow-2xl overflow-hidden relative"
                             >
                                 <div className="absolute inset-0 bg-brand-red translate-y-full group-hover:translate-y-0 transition-transform duration-700 -z-10" />
@@ -271,13 +280,15 @@ const Home = () => {
                         <p className="text-xl md:text-2xl text-slate-500 mb-12 max-w-3xl mx-auto font-medium">
                             Join hundreds of satisfied importers worldwide. Experience consistent quality and reliable supply of premium frozen seafood.
                         </p>
-                        <Link
-                            to="/contact"
-                            className="group inline-flex items-center justify-center gap-4 bg-slate-900 hover:bg-brand-red text-white font-black text-xl md:text-2xl px-12 py-6 md:py-8 rounded-full transition-all duration-500 shadow-2xl hover:-translate-y-2"
-                        >
-                            Get in Touch
-                            <ArrowRight className="w-8 h-8 group-hover:translate-x-2 transition-transform" />
-                        </Link>
+                        <Motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 400, damping: 10 }} className="inline-block">
+                            <Link
+                                to="/contact"
+                                className="group relative inline-flex items-center justify-center gap-4 bg-slate-900 hover:bg-brand-red text-white font-black text-xl md:text-2xl px-12 py-6 md:py-8 rounded-full transition-all duration-500 shadow-2xl"
+                            >
+                                Get in Touch
+                                <ArrowRight className="w-8 h-8 group-hover:translate-x-2 transition-transform" />
+                            </Link>
+                        </Motion.div>
                     </Motion.div>
                 </div>
             </section>

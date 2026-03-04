@@ -6,7 +6,12 @@ import { COMPANY_INFO } from '../constants/companyInfo';
 
 const NavLink = ({ link, active, isScrolled }) => {
     return (
-        <div className="relative group">
+        <Motion.div
+            className="relative group"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+        >
             <Link
                 to={link.path}
                 className={`relative px-4 py-2 text-sm font-bold uppercase tracking-widest transition-colors duration-300 z-10 flex items-center justify-center ${active
@@ -33,7 +38,7 @@ const NavLink = ({ link, active, isScrolled }) => {
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 />
             )}
-        </div>
+        </Motion.div>
     );
 };
 

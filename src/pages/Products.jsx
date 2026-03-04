@@ -79,7 +79,8 @@ const Products = () => {
                                 key={product.id}
                                 {...fadeInUp}
                                 transition={{ ...fadeInUp.transition, delay: (products.indexOf(product) % 3) * 0.1 }}
-                                whileHover={{ y: -15 }}
+                                whileHover={{ y: -15, scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
                                 className="group bg-white rounded-[3rem] overflow-hidden shadow-2xl shadow-slate-200/50 border border-slate-50 relative"
                             >
                                 {/* Image Container */}
@@ -123,12 +124,14 @@ const Products = () => {
                                         ))}
                                     </div>
 
-                                    <button
-                                        onClick={() => navigate('/contact')}
-                                        className="w-full py-5 rounded-[2rem] bg-slate-900 text-white font-black text-lg md:text-xl hover:bg-brand-red transition-all duration-500 shadow-xl shadow-slate-900/10 hover:shadow-brand-red/20"
-                                    >
-                                        Request Quote
-                                    </button>
+                                    <Motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                                        <button
+                                            onClick={() => navigate('/contact')}
+                                            className="w-full py-5 rounded-[2rem] bg-slate-900 text-white font-black text-lg md:text-xl hover:bg-brand-red transition-all duration-500 shadow-xl shadow-slate-900/10 hover:shadow-brand-red/20"
+                                        >
+                                            Request Quote
+                                        </button>
+                                    </Motion.div>
                                 </div>
                             </Motion.div>
                         ))}
@@ -158,10 +161,12 @@ const Products = () => {
                     <Motion.div
                         {...fadeInUp}
                         transition={{ ...fadeInUp.transition, delay: 0.3 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                     >
                         <Link
                             to="/contact"
-                            className="block bg-white text-brand-red px-10 md:px-12 py-5 md:py-6 rounded-full font-black text-xl md:text-2xl shadow-2xl hover:scale-105 transition-all whitespace-nowrap"
+                            className="block bg-white text-brand-red px-10 md:px-12 py-5 md:py-6 rounded-full font-black text-xl md:text-2xl shadow-2xl transition-all whitespace-nowrap"
                         >
                             Contact Sales Team
                         </Link>
