@@ -1,5 +1,5 @@
-import { useNavigate } from 'react-router-dom';
-import { motion as Motion, AnimatePresence } from 'framer-motion';
+import { useNavigate, Link } from 'react-router-dom';
+import { motion as Motion } from 'framer-motion';
 import { Star, ArrowUpRight } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import { fadeInUp } from '../utils/animations';
@@ -153,14 +153,17 @@ const Products = () => {
                             Looking for large quantities? We specialize in bulk exports with customized packaging and private labeling options.
                         </Motion.p>
                     </div>
-                    <Motion.a
+                    <Motion.div
                         {...fadeInUp}
                         transition={{ ...fadeInUp.transition, delay: 0.3 }}
-                        href="/contact"
-                        className="bg-white text-brand-red px-10 md:px-12 py-5 md:py-6 rounded-full font-black text-xl md:text-2xl shadow-2xl hover:scale-105 transition-all whitespace-nowrap"
                     >
-                        Contact Sales Team
-                    </Motion.a>
+                        <Link
+                            to="/contact"
+                            className="block bg-white text-brand-red px-10 md:px-12 py-5 md:py-6 rounded-full font-black text-xl md:text-2xl shadow-2xl hover:scale-105 transition-all whitespace-nowrap"
+                        >
+                            Contact Sales Team
+                        </Link>
+                    </Motion.div>
                 </div>
             </section>
         </div>

@@ -1,5 +1,5 @@
 import { motion as Motion } from 'framer-motion';
-import { ShieldCheck, Locate, ExternalLink, CheckCircle, FileText } from 'lucide-react';
+import { ShieldCheck, Flag, ExternalLink, CheckCircle, FileText } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import { staggerContainer } from '../utils/animations';
 
@@ -16,7 +16,7 @@ const Certifications = () => {
             title: "US-FDA Registered",
             authority: "U.S. Food & Drug Administration",
             desc: "Full compliance with United States food safety regulations and bioterrorism act.",
-            icon: <Locate className="w-12 h-12 text-blue-600" />,
+            icon: <Flag className="w-12 h-12 text-blue-600" />,
             delay: 0.2
         },
         {

@@ -1,5 +1,6 @@
 import { cloneElement } from 'react';
 import { motion as Motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Anchor, ShieldCheck, Lightbulb, Target } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import { fadeInUp } from '../utils/animations';
@@ -208,22 +209,28 @@ const About = () => {
                             Ready to Taste <br /> the <span className="italic underline decoration-white/20 underline-offset-8">Ocean?</span>
                         </h2>
                         <div className="flex flex-wrap justify-center gap-6 mt-12">
-                            <Motion.a
+                            <Motion.div
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                href="/products"
-                                className="px-12 py-6 bg-white text-brand-red rounded-full font-black text-xl transition-all shadow-2xl"
                             >
-                                Our Products
-                            </Motion.a>
-                            <Motion.a
+                                <Link
+                                    to="/products"
+                                    className="block px-12 py-6 bg-white text-brand-red rounded-full font-black text-xl transition-all shadow-2xl"
+                                >
+                                    Our Products
+                                </Link>
+                            </Motion.div>
+                            <Motion.div
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                href="/contact"
-                                className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl transition-all shadow-2xl"
                             >
-                                Get in Touch
-                            </Motion.a>
+                                <Link
+                                    to="/contact"
+                                    className="block px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl transition-all shadow-2xl"
+                                >
+                                    Get in Touch
+                                </Link>
+                            </Motion.div>
                         </div>
                     </Motion.div>
                 </div>
