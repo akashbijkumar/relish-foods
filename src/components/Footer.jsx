@@ -14,7 +14,7 @@ const Footer = () => {
                     <div className="lg:col-span-1">
                         <Link to="/" className="flex items-center gap-2 mb-8 group">
                             <img
-                                src={`${import.meta.env.BASE_URL}images/logo.png`}
+                                src={`${import.meta.env.BASE_URL}images/logo.jpg`}
                                 alt={COMPANY_INFO.name}
                                 className="h-16 w-auto object-contain"
                             />

@@ -134,7 +134,7 @@ const Navbar = () => {
                                     whileTap={{ scale: 0.95 }}
                                 >
                                     <img
-                                        src={`${import.meta.env.BASE_URL}images/logo.png`}
+                                        src={`${import.meta.env.BASE_URL}images/logo.jpg`}
                                         alt={COMPANY_INFO.name}
                                         className={`${isScrolled ? 'h-10 md:h-12' : 'h-12 md:h-16'} w-auto object-contain transition-all duration-500`}
                                     />
@@ -214,7 +214,7 @@ const Navbar = () => {
                                     <Link to="/" onClick={() => setIsOpen(false)}>
                                         <div className="bg-white p-2 rounded-xl shadow-lg border border-slate-100">
                                             <img
-                                                src={`${import.meta.env.BASE_URL}images/logo.png`}
+                                                src={`${import.meta.env.BASE_URL}images/logo.jpg`}
                                                 alt={COMPANY_INFO.name}
                                                 className="h-8 w-auto object-contain"
                                             />

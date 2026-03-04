@@ -138,7 +138,7 @@ const Certifications = () => {
                                 <Motion.img
                                     whileHover={{ scale: 1.05 }}
                                     transition={{ duration: 1.5 }}
-                                    src={`${import.meta.env.BASE_URL}images/Certifications/Testing.png`}
+                                    src={`${import.meta.env.BASE_URL}images/Certifications/Testing.jpg`}
                                     alt="Quality Laboratory"
                                     className="w-full h-[500px] md:h-[700px] object-cover"
                                 />

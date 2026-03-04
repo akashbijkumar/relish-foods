@@ -13,7 +13,7 @@ const Products = () => {
             id: 1,
             name: "Vannamei Shrimps",
             category: "Shrimps & Prawns",
-            image: `${import.meta.env.BASE_URL}images/products/Vanameri_Shrimp.png`,
+            image: `${import.meta.env.BASE_URL}images/products/Vanameri_Shrimp.jpg`,
             desc: "Premium quality Vannamei shrimps, head-on or headless, processed to perfection.",
             specs: ["IQF Frozen", "Export Quality", "HACCP Certified"]
         },
@@ -21,7 +21,7 @@ const Products = () => {
             id: 2,
             name: "Black Tiger Prawns",
             category: "Shrimps & Prawns",
-            image: `${import.meta.env.BASE_URL}images/products/Black_Tiger.png`,
+            image: `${import.meta.env.BASE_URL}images/products/Black_Tiger.jpg`,
             desc: "Massive, juicy Black Tiger prawns sourced from the deep Arabian sea.",
             specs: ["Block Frozen", "Sustainably Sourced"]
         },
@@ -29,7 +29,7 @@ const Products = () => {
             id: 3,
             name: "Squids",
             category: "Cephalopods",
-            image: `${import.meta.env.BASE_URL}images/products/Squid.png`,
+            image: `${import.meta.env.BASE_URL}images/products/Squid.jpg`,
             desc: "Tender, hand-cut squid rings, perfectly blanched and ready for gourmet cooking.",
             specs: ["Flash Frozen", "Cleaned & Ready"]
         },
@@ -37,7 +37,7 @@ const Products = () => {
             id: 4,
             name: "Yellowfin Tuna",
             category: "Fish Dishes",
-            image: `${import.meta.env.BASE_URL}images/products/Tuna.png`,
+            image: `${import.meta.env.BASE_URL}images/products/Tuna.jpg`,
             desc: "Sashimi-grade Yellowfin Tuna, processed under strict temperature controls.",
             specs: ["Blast Frozen", "Prime Cut"]
         },
@@ -45,7 +45,7 @@ const Products = () => {
             id: 5,
             name: "Indian Mackerel",
             category: "Fish Dishes",
-            image: `${import.meta.env.BASE_URL}images/products/Indian_Mackrel.png`,
+            image: `${import.meta.env.BASE_URL}images/products/Indian_Mackrel.jpg`,
             desc: "Freshly caught Indian Mackerel, rich in oil and flavor, frozen at source.",
             specs: ["Whole Round", "High Protein"]
         },
@@ -53,7 +53,7 @@ const Products = () => {
             id: 6,
             name: "Sardines",
             category: "Fish Dishes",
-            image: `${import.meta.env.BASE_URL}images/products/Sardines.png`,
+            image: `${import.meta.env.BASE_URL}images/products/Sardines.jpg`,
             desc: "Nutrient-dense Sardines, perfectly preserved to maintain their natural goodness.",
             specs: ["Blast Frozen", "Omega-3 Rich"]
         }
