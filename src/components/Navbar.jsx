@@ -46,36 +46,36 @@ const Navbar = () => {
     // Smooth scroll transformations
     const backgroundColor = useTransform(
         scrollY,
-        [0, 50],
-        ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 1)"]
+        [0, 80],
+        ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.95)"]
     );
 
     const backdropFilter = useTransform(
         scrollY,
-        [0, 50],
-        ["blur(0px)", "blur(12px)"]
+        [0, 80],
+        ["blur(0px)", "blur(16px)"]
     );
 
     const navPadding = useTransform(
         scrollY,
-        [0, 50],
-        ["24px", "12px"]
+        [0, 80],
+        ["20px", "10px"]
     );
 
     const logoScale = useTransform(
         scrollY,
-        [0, 50],
-        [1, 0.85]
+        [0, 80],
+        [0.9, 0.75]
     );
 
     const shadow = useTransform(
         scrollY,
-        [0, 50],
-        ["0px 0px 0px rgba(0,0,0,0)", "0px 4px 20px rgba(0,0,0,0.05)"]
+        [0, 80],
+        ["0px 0px 0px rgba(0,0,0,0)", "0px 10px 40px rgba(0,0,0,0.1)"]
     );
 
     useMotionValueEvent(scrollY, "change", (latest) => {
-        const scrolled = latest > 20;
+        const scrolled = latest > 50;
         if (scrolled !== isScrolled) {
             setIsScrolled(scrolled);
         }
@@ -117,7 +117,7 @@ const Navbar = () => {
                     <div className="flex items-center justify-between relative">
 
                         {/* Left Navigation */}
-                        <div className="hidden lg:flex items-center space-x-2 flex-1 justify-end pr-32">
+                        <div className="hidden lg:flex items-center space-x-2 flex-1 justify-end pr-28">
                             {leftLinks.map((link) => (
                                 <NavLink key={link.name} link={link} active={isActive(link.path)} isScrolled={isScrolled} />
                             ))}
@@ -128,9 +128,9 @@ const Navbar = () => {
                             <Link to="/">
                                 <Motion.div
                                     style={{ scale: logoScale }}
-                                    className={`relative flex items-center justify-center rounded-full transition-all duration-500 ${isScrolled ? 'bg-transparent p-2' : 'bg-white p-4 shadow-lg'
+                                    className={`relative flex items-center justify-center rounded-full transition-all duration-700 ${isScrolled ? 'bg-transparent p-1' : 'bg-white p-3 shadow-xl border border-slate-100'
                                         }`}
-                                    whileHover={{ scale: 1.1 }}
+                                    whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                 >
                                     <img

@@ -3,13 +3,13 @@ import { motion as Motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 import { COMPANY_INFO } from '../constants/companyInfo';
+import HeroBadge from '../components/HeroBadge';
 
 const Home = () => {
     return (
         <div className="flex flex-col">
             {/* Hero Section - Full immersive experience */}
-            {/* Hero Section - Redesigned */}
-            <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center overflow-hidden bg-slate-900 pt-32 sm:pt-0">
+            <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900 pt-32">
                 {/* Background Image - Enhanced */}
                 <Motion.div
                     initial={{ scale: 1.1, opacity: 0 }}
@@ -23,7 +23,7 @@ const Home = () => {
                         fetchpriority="high"
                         className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/50 to-slate-900/80 backdrop-blur-[2px]" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/40 to-slate-900/90 backdrop-blur-[2px]" />
                 </Motion.div>
 
                 {/* Hero Content */}
@@ -37,15 +37,7 @@ const Home = () => {
                     >
 
                         {/* Elegant Badge */}
-                        <Motion.div
-                            initial={{ opacity: 0, y: -20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2, duration: 0.8 }}
-                            className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-5 py-2 mb-8 backdrop-blur-md"
-                        >
-                            <span className="w-2 h-2 rounded-full bg-brand-red animate-pulse" />
-                            <span className="text-sm font-medium text-white/90 tracking-[0.2em] uppercase">Est. {COMPANY_INFO.established} · Global Excellence</span>
-                        </Motion.div>
+                        <HeroBadge text={`Est. ${COMPANY_INFO.established} · Global Excellence`} />
 
                         {/* Main Heading */}
                         <div className="overflow-hidden mb-8">
@@ -53,9 +45,9 @@ const Home = () => {
                                 initial={{ y: 50, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ delay: 0.4, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                                className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] font-bold text-white leading-[1.1] tracking-tight"
+                                className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] font-black text-white leading-[1.1] tracking-tighter"
                             >
-                                The <span className="text-brand-red italic">Gold Standard</span>
+                                The <span className="text-brand-red italic underline decoration-white/20 underline-offset-8">Gold Standard</span>
                                 <br />
                                 of Seafood
                             </Motion.h1>
@@ -66,7 +58,7 @@ const Home = () => {
                             initial={{ scaleX: 0, opacity: 0 }}
                             animate={{ scaleX: 1, opacity: 1 }}
                             transition={{ delay: 0.6, duration: 0.8 }}
-                            className="w-24 h-1 bg-brand-red mb-8"
+                            className="w-24 h-1.5 bg-brand-red mb-10 rounded-full"
                         />
 
                         {/* Subheading */}
@@ -74,7 +66,7 @@ const Home = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.8, duration: 0.8 }}
-                            className="text-lg sm:text-xl md:text-2xl text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed font-light"
+                            className="text-lg sm:text-xl md:text-2xl text-slate-200 mb-12 max-w-2xl mx-auto leading-relaxed font-medium"
                         >
                             Exporting premium quality catch from the pristine waters of the Arabian Sea to over 30 countries worldwide.
                         </Motion.p>
@@ -84,20 +76,20 @@ const Home = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1.0, duration: 0.8 }}
-                            className="flex flex-col sm:flex-row items-center gap-6"
+                            className="flex flex-wrap items-center justify-center gap-6"
                         >
                             <Link
                                 to="/products"
-                                className="group relative inline-flex items-center justify-center min-w-[240px] bg-brand-red/10 border border-brand-red/40 text-white font-bold text-lg px-8 py-5 rounded-full backdrop-blur-md transition-all duration-500 hover:bg-brand-red hover:border-brand-red hover:shadow-[0_15px_40px_-10px_rgba(227,30,36,0.6)] hover:-translate-y-1 hover:scale-105 active:scale-95 overflow-hidden"
+                                className="group relative inline-flex items-center justify-center min-w-[220px] bg-brand-red text-white font-black text-sm tracking-widest uppercase px-10 py-5 rounded-full hover:bg-white hover:text-brand-red hover:shadow-[0_20px_40px_-10px_rgba(227,30,36,0.4)] hover:-translate-y-1 transition-all duration-500"
                             >
-                                <span className="relative z-10 tracking-widest uppercase text-sm">Explore Products</span>
+                                Explore Products
                             </Link>
 
                             <Link
                                 to="/about"
-                                className="group relative inline-flex items-center justify-center min-w-[240px] bg-brand-red/10 border border-brand-red/40 text-white font-bold text-lg px-8 py-5 rounded-full backdrop-blur-md transition-all duration-500 hover:bg-brand-red hover:border-brand-red hover:shadow-[0_15px_40px_-10px_rgba(227,30,36,0.6)] hover:-translate-y-1 hover:scale-105 active:scale-95 overflow-hidden"
+                                className="group relative inline-flex items-center justify-center min-w-[220px] bg-white text-slate-900 font-black text-sm tracking-widest uppercase px-10 py-5 rounded-full hover:bg-brand-red hover:text-white hover:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.2)] hover:-translate-y-1 transition-all duration-500"
                             >
-                                <span className="relative z-10 tracking-widest uppercase text-sm">Our Heritage</span>
+                                Our Heritage
                             </Link>
                         </Motion.div>
                     </Motion.div>
